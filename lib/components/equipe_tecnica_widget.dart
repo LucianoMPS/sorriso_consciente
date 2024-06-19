@@ -5,6 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'equipe_tecnica_model.dart';
 export 'equipe_tecnica_model.dart';
 
@@ -44,25 +45,25 @@ class _EquipeTecnicaWidgetState extends State<EquipeTecnicaWidget> {
       children: [
         Material(
           color: Colors.transparent,
-          elevation: 2.0,
+          elevation: 2,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(0.0),
-              bottomRight: Radius.circular(0.0),
-              topLeft: Radius.circular(20.0),
-              topRight: Radius.circular(20.0),
+              bottomLeft: Radius.circular(0),
+              bottomRight: Radius.circular(0),
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
             ),
           ),
           child: Container(
-            width: 350.0,
-            height: 350.0,
+            width: 350,
+            height: 350,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(0.0),
-                bottomRight: Radius.circular(0.0),
-                topLeft: Radius.circular(20.0),
-                topRight: Radius.circular(20.0),
+                bottomLeft: Radius.circular(0),
+                bottomRight: Radius.circular(0),
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
               ),
               border: Border.all(
                 color: Colors.black,
@@ -74,30 +75,30 @@ class _EquipeTecnicaWidgetState extends State<EquipeTecnicaWidget> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  width: MediaQuery.sizeOf(context).width,
                   decoration: BoxDecoration(
                     color: Color(0xFF117BDF),
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(0.0),
-                      bottomRight: Radius.circular(0.0),
-                      topLeft: Radius.circular(10.0),
-                      topRight: Radius.circular(10.0),
+                      bottomLeft: Radius.circular(0),
+                      bottomRight: Radius.circular(0),
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10),
                     ),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(1.0, 0.0),
+                        alignment: AlignmentDirectional(1, 0),
                         child: FlutterFlowIconButton(
                           borderColor: Colors.transparent,
-                          borderRadius: 20.0,
-                          borderWidth: 1.0,
-                          buttonSize: 40.0,
+                          borderRadius: 20,
+                          borderWidth: 1,
+                          buttonSize: 40,
                           icon: Icon(
                             Icons.close,
                             color: Colors.white,
-                            size: 24.0,
+                            size: 24,
                           ),
                           onPressed: () async {
                             Navigator.pop(context);
@@ -109,10 +110,10 @@ class _EquipeTecnicaWidgetState extends State<EquipeTecnicaWidget> {
                 ),
                 Expanded(
                   child: Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    width: MediaQuery.sizeOf(context).width,
                     decoration: BoxDecoration(),
                     child: Padding(
-                      padding: EdgeInsets.all(6.0),
+                      padding: EdgeInsets.all(6),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -131,8 +132,8 @@ class _EquipeTecnicaWidgetState extends State<EquipeTecnicaWidget> {
                                       .override(
                                         fontFamily: 'Readex Pro',
                                         color: Colors.black,
-                                        fontSize: 20.0,
-                                        letterSpacing: 0.0,
+                                        fontSize: 20,
+                                        letterSpacing: 0,
                                         fontWeight: FontWeight.bold,
                                       ),
                                 ),
@@ -147,15 +148,23 @@ class _EquipeTecnicaWidgetState extends State<EquipeTecnicaWidget> {
                                 text: TextSpan(
                                   children: [
                                     TextSpan(
-                                      text: 'Vivian \n',
+                                      text: 'Josiane Santos Brant Rocha\n',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Readex Pro',
                                             color: Colors.black,
-                                            fontSize: 13.0,
-                                            letterSpacing: 0.0,
+                                            fontSize: 13,
+                                            letterSpacing: 0,
                                           ),
+                                    ),
+                                    TextSpan(
+                                      text: 'Vívian Cristina Silva Santos\n',
+                                      style: TextStyle(),
+                                    ),
+                                    TextSpan(
+                                      text: 'Rêne Rodrigues Veloso\n',
+                                      style: TextStyle(),
                                     ),
                                     TextSpan(
                                       text: 'Alan Matos Trindade\n',
@@ -167,7 +176,7 @@ class _EquipeTecnicaWidgetState extends State<EquipeTecnicaWidget> {
                                       style: TextStyle(),
                                     ),
                                     TextSpan(
-                                      text: 'Luciano Morais Pereira Silva\n',
+                                      text: 'Luciano Morais Pereira Silva',
                                       style: TextStyle(),
                                     )
                                   ],
@@ -176,16 +185,16 @@ class _EquipeTecnicaWidgetState extends State<EquipeTecnicaWidget> {
                                       .override(
                                         fontFamily: 'Readex Pro',
                                         color: Colors.black,
-                                        fontSize: 13.0,
-                                        letterSpacing: 0.0,
-                                        lineHeight: 2.0,
+                                        fontSize: 13,
+                                        letterSpacing: 0,
+                                        lineHeight: 2,
                                       ),
                                 ),
                                 textAlign: TextAlign.center,
                               ),
                             ],
                           ),
-                        ].divide(SizedBox(height: 10.0)),
+                        ].divide(SizedBox(height: 10)),
                       ),
                     ),
                   ),

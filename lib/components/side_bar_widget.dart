@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'side_bar_model.dart';
 export 'side_bar_model.dart';
 
@@ -45,7 +46,7 @@ class _SideBarWidgetState extends State<SideBarWidget> {
       children: [
         Expanded(
           child: Container(
-            width: 250.0,
+            width: 250,
             height: double.infinity,
             decoration: BoxDecoration(
               color: Color(0xFF117BDF),
@@ -56,18 +57,18 @@ class _SideBarWidgetState extends State<SideBarWidget> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(0.0),
+                  borderRadius: BorderRadius.circular(0),
                   child: Image.network(
                     'https://picsum.photos/seed/481/600',
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: 116.0,
+                    width: MediaQuery.sizeOf(context).width,
+                    height: 116,
                     fit: BoxFit.cover,
-                    alignment: Alignment(0.0, 0.0),
+                    alignment: Alignment(0, 0),
                   ),
                 ),
                 Builder(
                   builder: (context) => Padding(
-                    padding: EdgeInsets.all(14.0),
+                    padding: EdgeInsets.all(14),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -81,7 +82,7 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                               elevation: 0,
                               insetPadding: EdgeInsets.zero,
                               backgroundColor: Colors.transparent,
-                              alignment: AlignmentDirectional(0.0, 0.0)
+                              alignment: AlignmentDirectional(0, 0)
                                   .resolve(Directionality.of(context)),
                               child: Container(
                                 height: MediaQuery.sizeOf(context).height * 0.5,
@@ -98,12 +99,12 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                           Icon(
                             Icons.add,
                             color: Color(0xFFFFF800),
-                            size: 24.0,
+                            size: 24,
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                               child: Text(
                                 'Equipe Técnica',
                                 style: FlutterFlowTheme.of(context)
@@ -111,7 +112,7 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       color: Colors.white,
-                                      letterSpacing: 0.0,
+                                      letterSpacing: 0,
                                       fontWeight: FontWeight.bold,
                                     ),
                               ),
@@ -124,7 +125,7 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                 ),
                 Builder(
                   builder: (context) => Padding(
-                    padding: EdgeInsets.all(14.0),
+                    padding: EdgeInsets.all(14),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -138,7 +139,7 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                               elevation: 0,
                               insetPadding: EdgeInsets.zero,
                               backgroundColor: Colors.transparent,
-                              alignment: AlignmentDirectional(0.0, 0.0)
+                              alignment: AlignmentDirectional(0, 0)
                                   .resolve(Directionality.of(context)),
                               child: SaibaMaisWidget(),
                             );
@@ -152,12 +153,12 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                           Icon(
                             Icons.add,
                             color: Color(0xFFFFF800),
-                            size: 24.0,
+                            size: 24,
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 0.0, 0.0, 0.0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
                               child: Text(
                                 'Saiba Mais',
                                 style: FlutterFlowTheme.of(context)
@@ -165,7 +166,7 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                                     .override(
                                       fontFamily: 'Readex Pro',
                                       color: Colors.white,
-                                      letterSpacing: 0.0,
+                                      letterSpacing: 0,
                                       fontWeight: FontWeight.bold,
                                     ),
                               ),
@@ -177,13 +178,13 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Divider(
-                        thickness: 1.0,
+                        thickness: 1,
                         color: Color(0xFFFFF800),
                       ),
                       Row(
@@ -191,8 +192,8 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 10.0, 0.0, 0.0),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
                             child: Text(
                               'Um apoio de:',
                               textAlign: TextAlign.start,
@@ -201,7 +202,7 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     color: Colors.white,
-                                    letterSpacing: 0.0,
+                                    letterSpacing: 0,
                                     fontWeight: FontWeight.bold,
                                   ),
                             ),
@@ -210,15 +211,29 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                       ),
                       ClipRRect(
                         borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(0.0),
-                          bottomRight: Radius.circular(0.0),
-                          topLeft: Radius.circular(0.0),
-                          topRight: Radius.circular(0.0),
+                          bottomLeft: Radius.circular(0),
+                          bottomRight: Radius.circular(0),
+                          topLeft: Radius.circular(0),
+                          topRight: Radius.circular(0),
                         ),
                         child: SvgPicture.asset(
                           'assets/images/Logo-Horizontal-Unimontes-SVG-1-1.svg',
-                          width: 245.0,
-                          height: 100.0,
+                          width: 245,
+                          height: 100,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                      ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(0),
+                          bottomRight: Radius.circular(0),
+                          topLeft: Radius.circular(0),
+                          topRight: Radius.circular(0),
+                        ),
+                        child: Image.asset(
+                          'assets/images/ppgcps.png',
+                          width: 245,
+                          height: 100,
                           fit: BoxFit.contain,
                         ),
                       ),
