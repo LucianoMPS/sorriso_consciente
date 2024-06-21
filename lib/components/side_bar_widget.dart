@@ -141,7 +141,10 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                               backgroundColor: Colors.transparent,
                               alignment: AlignmentDirectional(0, 0)
                                   .resolve(Directionality.of(context)),
-                              child: SaibaMaisWidget(),
+                              child: Container(
+                                height: MediaQuery.sizeOf(context).height * 0.5,
+                                child: SaibaMaisWidget(),
+                              ),
                             );
                           },
                         ).then((value) => setState(() {}));

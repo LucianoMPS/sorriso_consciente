@@ -1,9 +1,10 @@
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'saiba_mais_model.dart';
 export 'saiba_mais_model.dart';
 
@@ -43,24 +44,24 @@ class _SaibaMaisWidgetState extends State<SaibaMaisWidget> {
       children: [
         Material(
           color: Colors.transparent,
-          elevation: 2.0,
+          elevation: 2,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(0.0),
-              bottomRight: Radius.circular(0.0),
-              topLeft: Radius.circular(20.0),
-              topRight: Radius.circular(20.0),
+              bottomLeft: Radius.circular(0),
+              bottomRight: Radius.circular(0),
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
             ),
           ),
           child: Container(
-            width: 350.0,
+            width: 350,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(0.0),
-                bottomRight: Radius.circular(0.0),
-                topLeft: Radius.circular(20.0),
-                topRight: Radius.circular(20.0),
+                bottomLeft: Radius.circular(0),
+                bottomRight: Radius.circular(0),
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
               ),
               border: Border.all(
                 color: Colors.black,
@@ -72,85 +73,91 @@ class _SaibaMaisWidgetState extends State<SaibaMaisWidget> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  width: MediaQuery.sizeOf(context).width,
                   decoration: BoxDecoration(
                     color: Color(0xFF117BDF),
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(0.0),
-                      bottomRight: Radius.circular(0.0),
-                      topLeft: Radius.circular(10.0),
-                      topRight: Radius.circular(10.0),
+                      bottomLeft: Radius.circular(0),
+                      bottomRight: Radius.circular(0),
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10),
                     ),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Align(
-                        alignment: AlignmentDirectional(1.0, 0.0),
-                        child: FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 20.0,
-                          borderWidth: 1.0,
-                          buttonSize: 40.0,
-                          icon: Icon(
-                            Icons.close,
-                            color: Colors.white,
-                            size: 24.0,
-                          ),
-                          onPressed: () async {
-                            Navigator.pop(context);
-                          },
+                      Padding(
+                        padding: EdgeInsets.all(6),
+                        child: Text(
+                          'Saiba Mais',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                    letterSpacing: 0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                         ),
                       ),
                     ],
                   ),
                 ),
-                Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  decoration: BoxDecoration(),
-                  child: Padding(
-                    padding: EdgeInsets.all(6.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Saiba Mais',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.black,
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'Olá! Você marcou uma das condições de saúde anteriores e isso significa que você faz parte de um grupo que necessita de cuidados especiais. \n\nPor isso, é muito importante que você visite o dentista regularmente. Ele vai cuidar da sua boca, identificar problemas logo no início e evitar que eles fiquem graves. Além disso, cuidar bem dos seus dentes pode ajudar a controlar sua saúde geral e deixar você mais saudável. Por isso, não se esqueça de ir ao dentista com frequência. É essencial para manter sua saúde em dia!\"\n\nOlá! Você marcou uma das condições de saúde anteriores e isso significa que você faz parte de um grupo que necessita de cuidados especiais. \n\nPor isso, é muito importante que você visite o dentista regularmente. Ele vai cuidar da sua boca, identificar problemas logo no início e evitar que eles fiquem graves. Além disso, cuidar bem dos seus dentes pode ajudar a controlar sua saúde geral e deixar você mais saudável. Por isso, não se esqueça de ir ao dentista com frequência. É essencial para manter sua saúde em dia!\"\n\nOlá! Você marcou uma das condições de saúde anteriores e isso significa que você faz parte de um grupo que necessita de cuidados especiais. ',
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 12),
+                  child: Container(
+                    width: MediaQuery.sizeOf(context).width,
+                    decoration: BoxDecoration(),
+                    child: Padding(
+                      padding: EdgeInsets.all(6),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(12),
+                            child: Text(
+                              'Futuras referencias\n\nLorem ipsum dolor sit amet consectetur adipisicing elit. Quasi obcaecati id exercitationem nisi sit cum ipsa repudiandae eaque, maiores omnis, eos placeat ea quod dignissimos, consequuntur esse? Porro est iure veniam ad mollitia tempore facere, repellat eos repudiandae fugiat maxime dolorum rem ut iusto assumenda tenetur corrupti. Nam, laboriosam esse?',
                               textAlign: TextAlign.justify,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Readex Pro',
                                     color: Colors.black,
-                                    letterSpacing: 0.0,
+                                    letterSpacing: 0,
                                   ),
                             ),
-                          ],
-                        ),
-                      ].divide(SizedBox(height: 10.0)),
+                          ),
+                          FFButtonWidget(
+                            onPressed: () async {
+                              Navigator.pop(context);
+                            },
+                            text: 'OK',
+                            options: FFButtonOptions(
+                              width: 120,
+                              height: 40,
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                              iconPadding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              color: Color(0xFF117BDF),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.white,
+                                    letterSpacing: 0,
+                                  ),
+                              elevation: 3,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(0),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

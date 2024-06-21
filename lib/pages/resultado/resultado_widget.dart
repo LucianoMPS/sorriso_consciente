@@ -293,7 +293,7 @@ class _ResultadoWidgetState extends State<ResultadoWidget> {
                                         },
                                       ).then((value) => setState(() {}));
 
-                                      context.pushNamed('HomePage');
+                                      context.pushNamed('Recomendacoes');
                                     },
                                     text: 'Finalizar',
                                     options: FFButtonOptions(
