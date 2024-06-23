@@ -52,4 +52,33 @@ class PerguntasSemDenteNaturalModel
   String? get radioButtonValue4 => radioButtonValueController4?.value;
   String? get radioButtonValue5 => radioButtonValueController5?.value;
   String? get radioButtonValue6 => radioButtonValueController6?.value;
+
+  int pontuacao = 0;
+
+  void geraPontuacao() {
+    if (radioButtonValue1 == 'Não') {
+      pontuacao += 15;
+    }
+    if (radioButtonValue2 == 'Sim') {
+      pontuacao += 20;
+    }
+    if (radioButtonValue3 == 'Sim') {
+      pontuacao += 10;
+    } else if (radioButtonValue3 == 'Às vezes') {
+      pontuacao += 5;
+    }
+    if (radioButtonValue4 == 'Sim') {
+      pontuacao += 10;
+    } else if (radioButtonValue4 == 'Às vezes') {
+      pontuacao += 5;
+    }
+    if (radioButtonValue5 == 'Não') {
+      pontuacao += 10;
+    } 
+    if (radioButtonValue6 == 'Não') {
+      pontuacao += 15;
+    } else if (radioButtonValue6 == 'Às vezes') {
+      pontuacao += 10;
+    }
+  }
 }

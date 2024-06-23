@@ -63,4 +63,49 @@ class PerguntasDenteNaturalModel
   String? get radioButtonValue8 => radioButtonValueController8?.value;
   String? get radioButtonValue9 => radioButtonValueController9?.value;
   String? get radioButtonValue10 => radioButtonValueController10?.value;
+
+    int pontuacao = 0;
+
+  void geraPontuacao() {
+    if (radioButtonValue1 == 'Não') {
+      pontuacao += 15;
+    }
+    if (radioButtonValue2 == 'Sim') {
+      pontuacao += 15;
+    } else if (radioButtonValue2 == 'Às vezes') {
+      pontuacao += 10;
+    }
+    if (radioButtonValue3 == 'Sim') {
+      pontuacao += 15;
+    }
+    if (radioButtonValue4 == 'Sim') {
+      pontuacao += 20;
+    }
+    if (radioButtonValue5 == 'Sim') {
+      pontuacao += 10;
+    } else if (radioButtonValue5 == 'Às vezes') {
+      pontuacao += 5;
+    }
+    if (radioButtonValue6 == 'Sim') {
+      pontuacao += 15;
+    }
+    if (radioButtonValue7 == 'Sim') {
+      pontuacao += 10;
+    } else if (radioButtonValue7 == 'Ás vezes') {
+      pontuacao += 5;
+    }
+    if (radioButtonValue8 == 'Não') {
+      pontuacao += 10;
+    }
+    if (radioButtonValue9 == 'Não') {
+      pontuacao += 10;
+    } else if (radioButtonValue9 == 'Às vezes'){
+      pontuacao += 15;
+    }
+    if (radioButtonValue10 == 'Não') {
+      pontuacao += 10;
+    } else if (radioButtonValue10 == 'Às vezes') {
+      pontuacao += 5;
+    }
+  }
 }

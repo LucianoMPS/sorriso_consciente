@@ -1,3 +1,5 @@
+import 'package:sorriso_consciente/provider/perguntas_sem_dente_natural_provider.dart';
+
 import '/components/alerta_campos_nao_preenchidos_widget.dart';
 import '/components/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -804,7 +806,8 @@ class _PerguntasSemDenteNaturalWidgetState
 
                                         return;
                                       }
-
+                                      _model.geraPontuacao();
+                                      Provider.of<PerguntasSemDenteNaturalProvider>(context, listen: false).addAnswer(_model);
                                       context.goNamed('Resultado');
                                     },
                                     text: 'Continuar',

@@ -1,3 +1,6 @@
+import 'package:sorriso_consciente/provider/perguntas_dente_natural_provider.dart';
+import 'package:sorriso_consciente/provider/perguntas_sem_dente_natural_provider.dart';
+
 import '/components/alerta_campos_nao_preenchidos_widget.dart';
 import '/components/alerta_risco_widget.dart';
 import '/components/side_bar_widget.dart';
@@ -35,6 +38,9 @@ class _PerguntasIniciaisWidgetState extends State<PerguntasIniciaisWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    Provider.of<PerguntasSemDenteNaturalProvider>(context, listen: false).clear();
+    Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).clear();
   }
 
   @override
