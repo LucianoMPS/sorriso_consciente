@@ -1193,6 +1193,7 @@ class _PerguntasDenteNaturalWidgetState
 
                                         return;
                                       }
+                                      Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).clear();
                                       _model.geraPontuacao();
                                       Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).addAnswer(_model);
                                       context.pushNamed('Resultado');

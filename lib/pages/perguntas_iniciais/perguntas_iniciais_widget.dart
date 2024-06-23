@@ -37,10 +37,7 @@ class _PerguntasIniciaisWidgetState extends State<PerguntasIniciaisWidget> {
     _model = createModel(context, () => PerguntasIniciaisModel());
 
     _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
-
-    Provider.of<PerguntasSemDenteNaturalProvider>(context, listen: false).clear();
-    Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).clear();
+    _model.textFieldFocusNode ??= FocusNode();  
   }
 
   @override

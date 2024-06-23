@@ -1,3 +1,6 @@
+import 'package:sorriso_consciente/provider/perguntas_dente_natural_provider.dart';
+import 'package:sorriso_consciente/provider/perguntas_sem_dente_natural_provider.dart';
+
 import '/components/alerta_sobre_app_widget.dart';
 import '/components/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -39,6 +42,20 @@ class _ResultadoWidgetState extends State<ResultadoWidget> {
 
   @override
   Widget build(BuildContext context) {
+    int? pontuacao = 0 ;
+    List<String>? perguntas;
+    String? resultado = '';
+    // Inicializando as variáveis pontuacao e perguntas
+    if (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).pontuacao != null) {
+      pontuacao = Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).pontuacao;
+      perguntas = Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural;
+    } else {
+      pontuacao = Provider.of<PerguntasSemDenteNaturalProvider>(context, listen: false).pontuacao;
+      perguntas = Provider.of<PerguntasSemDenteNaturalProvider>(context, listen: false).perguntas_sem_dente_natural;
+    }
+
+    resultado = textPontuacao(pontuacao);
+    
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -189,7 +206,7 @@ class _ResultadoWidgetState extends State<ResultadoWidget> {
                                                   ),
                                             ),
                                             TextSpan(
-                                              text: '12',
+                                              text: '$pontuacao',
                                               style: TextStyle(
                                                 fontSize: 30.0,
                                               ),
@@ -210,7 +227,7 @@ class _ResultadoWidgetState extends State<ResultadoWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           24.0, 0.0, 24.0, 0.0),
                                       child: Text(
-                                        'Saúde bucal excelente. Indica que você provavelmente mantém hábitos excelentes de higiene oral e não apresenta sinais de problemas dentários significativos. Recomenda-se manter os bons hábitos e fazer visitas regulares ao dentista para exames preventivos.',
+                                        '$resultado',
                                         textAlign: TextAlign.justify,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -337,5 +354,33 @@ class _ResultadoWidgetState extends State<ResultadoWidget> {
         ),
       ),
     );
+  }
+
+    String? textPontuacao (int? pontuacao) {
+    if (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).pontuacao != null) {
+      if (pontuacao! <= 15) {
+        return 'Saúde bucal excelente. Indica que você provavelmente mantém hábitos excelentes de higiene oral e não apresenta sinais de problemas dentários significativos. Recomenda-se manter os bons hábitos e fazer visitas regulares ao dentista para exames preventivos.';
+      } else if (pontuacao <= 30) {
+        return 'Saúde bucal boa. Indica que, embora você provavelmente tenha uma boa higiene oral em geral, podem ainda ser observados alguns sinais de alerta ou áreas que necessitam de melhoria. Recomenda-se prestar atenção aos sintomas indicados e considerar visitar o dentista para avaliação adicional.';
+      } else if (pontuacao <= 45) {
+        return 'Saúde bucal razoável. Indica que provavelmente você pode estar enfrentando alguns problemas dentários ou de higiene oral que precisam ser abordados. Recomenda-se uma consulta odontológica para avaliação e tratamento adequado.';
+      } else if (pontuacao <= 70) {
+        return 'Saúde bucal insatisfatória. Sugere que você provavelmente apresenta sinais significativos de problemas dentários ou higiene oral inadequada. É altamente recomendável agendar uma consulta odontológica o mais rápido possível para diagnóstico e tratamento.';
+      } else {
+        return 'Saúde bucal crítica. Indica uma condição bucal preocupante que pode exigir intervenção imediata. Recomenda-se procurar atendimento odontológico urgente para evitar complicações graves.';
+      }
+    } else if (Provider.of<PerguntasSemDenteNaturalProvider>(context, listen: false).pontuacao != null){
+      if (pontuacao! <= 5) {
+        return 'Saúde bucal excelente. Indica que você provavelmente mantém hábitos excelentes de higiene oral e não apresenta sinais de problemas dentários significativos. Recomenda-se manter os bons hábitos e fazer visitas regulares ao dentista para exames preventivos.';
+      } else if (pontuacao <= 20) {
+        return 'Saúde bucal boa. Indica que, embora você provavelmente tenha uma boa higiene oral em geral, podem ainda ser observados alguns sinais de alerta ou áreas que necessitam de melhoria. Recomenda-se prestar atenção aos sintomas indicados e considerar visitar o dentista para avaliação adicional.';
+      } else if (pontuacao <= 45) {
+        return 'Saúde bucal razoável. Indica que provavelmente você pode estar enfrentando alguns problemas dentários ou de higiene oral que precisam ser abordados. Recomenda-se uma consulta odontológica para avaliação e tratamento adequado.';
+      } else if (pontuacao <= 60) {
+        return 'Saúde bucal insatisfatória. Sugere que você provavelmente apresenta sinais significativos de problemas dentários ou higiene oral inadequada. É altamente recomendável agendar uma consulta odontológica o mais rápido possível para diagnóstico e tratamento.';
+      } else {
+        return 'Saúde bucal crítica. Indica uma condição bucal preocupante que pode exigir intervenção imediata. Recomenda-se procurar atendimento odontológico urgente para evitar complicações graves.';
+      }
+    }
   }
 }

@@ -53,9 +53,10 @@ class PerguntasSemDenteNaturalModel
   String? get radioButtonValue5 => radioButtonValueController5?.value;
   String? get radioButtonValue6 => radioButtonValueController6?.value;
 
-  int pontuacao = 0;
+  late int pontuacao;
 
   void geraPontuacao() {
+    pontuacao = 0;
     if (radioButtonValue1 == 'Não') {
       pontuacao += 15;
     }
