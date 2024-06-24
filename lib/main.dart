@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:sorriso_consciente/db/banco.dart';
 import 'package:sorriso_consciente/provider/perguntas_dente_natural_provider.dart';
 import 'package:sorriso_consciente/provider/perguntas_sem_dente_natural_provider.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
@@ -13,6 +14,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
+import 'package:sorriso_consciente/db/banco.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +22,7 @@ void main() async {
   usePathUrlStrategy();
 
   await FlutterFlowTheme.initialize();
-
+  
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(( _ ) {
     runApp(MyApp());
   }); /* seta o app para o modo portrai up (apenas vertical*/
