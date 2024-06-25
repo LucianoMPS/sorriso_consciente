@@ -1,3 +1,4 @@
+import 'package:sorriso_consciente/db/historic.dart';
 import 'package:sorriso_consciente/provider/perguntas_dente_natural_provider.dart';
 import 'package:sorriso_consciente/provider/perguntas_sem_dente_natural_provider.dart';
 
