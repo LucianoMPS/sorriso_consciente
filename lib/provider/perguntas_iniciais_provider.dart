@@ -13,8 +13,7 @@ class PerguntasIniciaisProvider extends ChangeNotifier {
   void addAnswer(PerguntasIniciaisModel perguntas) {
     perguntas_iniciais ??= [];
     idade = perguntas.idade;
-
-    perguntas_iniciais!.clear();
+    
     perguntas_iniciais?.add(perguntas.radioButtonValue1!);
     perguntas_iniciais?.add(perguntas.radioButtonValue2!);
     perguntas_iniciais?.add(perguntas.radioButtonValue3!);
@@ -22,6 +21,13 @@ class PerguntasIniciaisProvider extends ChangeNotifier {
     perguntas_iniciais?.add(perguntas.radioButtonValue5!);
     perguntas_iniciais?.add(perguntas.radioButtonValue6!);
     perguntas_iniciais?.add(perguntas.radioButtonValue7!);
+
+    notifyListeners();
+  }
+
+  void clear() {
+    idade = null;
+    perguntas_iniciais?.clear();
 
     notifyListeners();
   }
@@ -34,7 +40,7 @@ class PerguntasIniciaisProvider extends ChangeNotifier {
       'perguntainicial4': perguntas_iniciais?[3],
       'perguntainicial5': perguntas_iniciais?[4],
       'perguntainicial6': perguntas_iniciais?[5],
-      'perguntainicial6': perguntas_iniciais?[6],
+      'perguntainicial7': perguntas_iniciais?[6],
       'idade': idade,
     };
   }

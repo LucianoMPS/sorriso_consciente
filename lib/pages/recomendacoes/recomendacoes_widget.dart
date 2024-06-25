@@ -1,5 +1,6 @@
-import 'package:sorriso_consciente/pages/perguntas_iniciais/perguntas_iniciais_model.dart';
+import 'package:sorriso_consciente/provider/perguntas_dente_natural_provider.dart';
 import 'package:sorriso_consciente/provider/perguntas_iniciais_provider.dart';
+import 'package:sorriso_consciente/provider/perguntas_sem_dente_natural_provider.dart';
 
 import '/components/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -24,6 +25,9 @@ class RecomendacoesWidget extends StatefulWidget {
 
 class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
   late RecomendacoesModel _model;
+  late var _perguntas_iniciais = Provider.of<PerguntasIniciaisProvider>(context, listen: false);
+  late var _perguntas_dente_natural = Provider.of<PerguntasDenteNaturalProvider>(context, listen: false);
+  late var _perguntas_sem_dente_natural = Provider.of<PerguntasSemDenteNaturalProvider>(context, listen: false);
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -168,23 +172,23 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                     ),
                                     scrollDirection: Axis.vertical,
                                     children: [
-                                      Padding(
-                                        padding: EdgeInsets.all(4),
-                                        child: Card(
-                                          clipBehavior:
-                                              Clip.antiAliasWithSaveLayer,
-                                          color: Color(0xFF117BDF),
-                                          elevation: 4,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20),
-                                              bottomRight: Radius.circular(20),
-                                              topLeft: Radius.circular(20),
-                                              topRight: Radius.circular(20),
+                                      Visibility(
+                                        visible: (Provider.of<PerguntasIniciaisProvider>(context, listen: false).perguntas_iniciais?[6] == 'Não'),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(4),
+                                          child: Card(
+                                            clipBehavior:
+                                                Clip.antiAliasWithSaveLayer,
+                                            color: Color(0xFF117BDF),
+                                            elevation: 4,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft: Radius.circular(20),
+                                                bottomRight: Radius.circular(20),
+                                                topLeft: Radius.circular(20),
+                                                topRight: Radius.circular(20),
+                                              ),
                                             ),
-                                          ),
-                                          child: Visibility(
-                                            visible: (Provider.of<PerguntasIniciaisProvider>(context, listen: false).perguntas_iniciais?[6] == 'Não'),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -307,118 +311,69 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                           ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.all(4),
-                                        child: Card(
-                                          clipBehavior:
-                                              Clip.antiAliasWithSaveLayer,
-                                          color: Color(0xFF117BDF),
-                                          elevation: 4,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20),
-                                              bottomRight: Radius.circular(20),
-                                              topLeft: Radius.circular(20),
-                                              topRight: Radius.circular(20),
-                                            ),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                                child: Image.asset(
-                                                  'assets/images/perdeuDente.png',
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  height: 150,
-                                                  fit: BoxFit.cover,
-                                                ),
+                                      Visibility(
+                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural?[0] == 'Não'),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(4),
+                                          child: Card(
+                                            clipBehavior:
+                                                Clip.antiAliasWithSaveLayer,
+                                            color: Color(0xFF117BDF),
+                                            elevation: 4,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft: Radius.circular(20),
+                                                bottomRight: Radius.circular(20),
+                                                topLeft: Radius.circular(20),
+                                                topRight: Radius.circular(20),
                                               ),
-                                              Padding(
-                                                padding: EdgeInsets.all(6),
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(20),
-                                                      bottomRight:
-                                                          Radius.circular(20),
-                                                      topLeft:
-                                                          Radius.circular(10),
-                                                      topRight:
-                                                          Radius.circular(10),
-                                                    ),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                  child: Image.asset(
+                                                    'assets/images/perdeuDente.png',
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    height: 150,
+                                                    fit: BoxFit.cover,
                                                   ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(6),
-                                                        child: Text(
-                                                          'PERDEU UM DENTE? VEJA O QUE PODE ACONTECER',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: Colors
-                                                                    .black,
-                                                                letterSpacing:
-                                                                    0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                        ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(6),
+                                                  child: Container(
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(20),
+                                                        bottomRight:
+                                                            Radius.circular(20),
+                                                        topLeft:
+                                                            Radius.circular(10),
+                                                        topRight:
+                                                            Radius.circular(10),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(10),
-                                                        child: RichText(
-                                                          textScaler:
-                                                              MediaQuery.of(
-                                                                      context)
-                                                                  .textScaler,
-                                                          text: TextSpan(
-                                                            children: [
-                                                              TextSpan(
-                                                                text:
-                                                                    'Além de problemas estéticos, a perda de um dente pode levar a problemas como dificuldade para mastigar, alterações na fala e deslocamento dos dentes adjacentes. \n\n',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: Colors
-                                                                          .black,
-                                                                      letterSpacing:
-                                                                          0,
-                                                                    ),
-                                                              ),
-                                                              TextSpan(
-                                                                text:
-                                                                    '• Dentes próximos podem se mover para o espaço vazio, causando desalinhamento do sorriso e em casos mais graves, ao longo prazo, pode causar o amolecimento e perda de outros dentes.\n\n• Pode piorar a alimentação por ficar mais difícil mastigar alguns alimentos. \n\n• Pode causar esforço extra e desnecessário em outros dentes, podendo causar problemas futuros.\n\nO que fazer:\n\n• Visite o dentista para avaliar a melhor solução, como uma prótese, ponte ou implante.',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: Colors
-                                                                      .black,
-                                                                ),
-                                                              )
-                                                            ],
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(6),
+                                                          child: Text(
+                                                            'PERDEU UM DENTE? VEJA O QUE PODE ACONTECER',
+                                                            textAlign:
+                                                                TextAlign.center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -429,138 +384,135 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                                                       .black,
                                                                   letterSpacing:
                                                                       0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
                                                                 ),
                                                           ),
-                                                          textAlign:
-                                                              TextAlign.justify,
                                                         ),
-                                                      ),
-                                                    ],
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(10),
+                                                          child: RichText(
+                                                            textScaler:
+                                                                MediaQuery.of(
+                                                                        context)
+                                                                    .textScaler,
+                                                            text: TextSpan(
+                                                              children: [
+                                                                TextSpan(
+                                                                  text:
+                                                                      'Além de problemas estéticos, a perda de um dente pode levar a problemas como dificuldade para mastigar, alterações na fala e deslocamento dos dentes adjacentes. \n\n',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: Colors
+                                                                            .black,
+                                                                        letterSpacing:
+                                                                            0,
+                                                                      ),
+                                                                ),
+                                                                TextSpan(
+                                                                  text:
+                                                                      '• Dentes próximos podem se mover para o espaço vazio, causando desalinhamento do sorriso e em casos mais graves, ao longo prazo, pode causar o amolecimento e perda de outros dentes.\n\n• Pode piorar a alimentação por ficar mais difícil mastigar alguns alimentos. \n\n• Pode causar esforço extra e desnecessário em outros dentes, podendo causar problemas futuros.\n\nO que fazer:\n\n• Visite o dentista para avaliar a melhor solução, como uma prótese, ponte ou implante.',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: Colors
+                                                                        .black,
+                                                                  ),
+                                                                )
+                                                              ],
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: Colors
+                                                                        .black,
+                                                                    letterSpacing:
+                                                                        0,
+                                                                  ),
+                                                            ),
+                                                            textAlign:
+                                                                TextAlign.justify,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.all(4),
-                                        child: Card(
-                                          clipBehavior:
-                                              Clip.antiAliasWithSaveLayer,
-                                          color: Color(0xFF117BDF),
-                                          elevation: 4,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20),
-                                              bottomRight: Radius.circular(20),
-                                              topLeft: Radius.circular(20),
-                                              topRight: Radius.circular(20),
-                                            ),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                                child: Image.asset(
-                                                  'assets/images/dorDente.jpg',
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  height: 150,
-                                                  fit: BoxFit.cover,
-                                                ),
+                                      Visibility(
+                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural![1] != 'Não'),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(4),
+                                          child: Card(
+                                            clipBehavior:
+                                                Clip.antiAliasWithSaveLayer,
+                                            color: Color(0xFF117BDF),
+                                            elevation: 4,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft: Radius.circular(20),
+                                                bottomRight: Radius.circular(20),
+                                                topLeft: Radius.circular(20),
+                                                topRight: Radius.circular(20),
                                               ),
-                                              Padding(
-                                                padding: EdgeInsets.all(6),
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(20),
-                                                      bottomRight:
-                                                          Radius.circular(20),
-                                                      topLeft:
-                                                          Radius.circular(10),
-                                                      topRight:
-                                                          Radius.circular(10),
-                                                    ),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                  child: Image.asset(
+                                                    'assets/images/dorDente.jpg',
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    height: 150,
+                                                    fit: BoxFit.cover,
                                                   ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(6),
-                                                        child: Text(
-                                                          'DOR OU SENSIBILIDADE NOS DENTES? DESCUBRA O QUE PODE SER',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: Colors
-                                                                    .black,
-                                                                letterSpacing:
-                                                                    0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                        ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(6),
+                                                  child: Container(
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(20),
+                                                        bottomRight:
+                                                            Radius.circular(20),
+                                                        topLeft:
+                                                            Radius.circular(10),
+                                                        topRight:
+                                                            Radius.circular(10),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(10),
-                                                        child: RichText(
-                                                          textScaler:
-                                                              MediaQuery.of(
-                                                                      context)
-                                                                  .textScaler,
-                                                          text: TextSpan(
-                                                            children: [
-                                                              TextSpan(
-                                                                text:
-                                                                    'Dor ou sensibilidade podem ser sinais de problemas.\n\n',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: Colors
-                                                                          .black,
-                                                                      letterSpacing:
-                                                                          0,
-                                                                    ),
-                                                              ),
-                                                              TextSpan(
-                                                                text:
-                                                                    '• Cáries, dentes quebrados ou desgastados, retração da gengiva, alterações nos dentes como “lesões cervicais não cariosas”, clareamento dental, corrosão nos dentes, entre outros, são causas comuns para dor e sensibilidade.\n\n• O consumo de alimentos quentes, frios ou doces pode agravar a dor e sensibilidade.\n\n',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: Colors
-                                                                      .black,
-                                                                ),
-                                                              ),
-                                                              TextSpan(
-                                                                text:
-                                                                    'O que fazer:\n\n• Marque uma consulta com o dentista para avaliação e tratamento adequado.\n\n• Em alguns casos, o uso de creme dental para dentes sensíveis pode ajudar a aliviar um pouco o desconforto.',
-                                                                style:
-                                                                    TextStyle(),
-                                                              )
-                                                            ],
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(6),
+                                                          child: Text(
+                                                            'DOR OU SENSIBILIDADE NOS DENTES? DESCUBRA O QUE PODE SER',
+                                                            textAlign:
+                                                                TextAlign.center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -571,141 +523,141 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                                                       .black,
                                                                   letterSpacing:
                                                                       0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
                                                                 ),
                                                           ),
-                                                          textAlign:
-                                                              TextAlign.justify,
                                                         ),
-                                                      ),
-                                                    ],
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(10),
+                                                          child: RichText(
+                                                            textScaler:
+                                                                MediaQuery.of(
+                                                                        context)
+                                                                    .textScaler,
+                                                            text: TextSpan(
+                                                              children: [
+                                                                TextSpan(
+                                                                  text:
+                                                                      'Dor ou sensibilidade podem ser sinais de problemas.\n\n',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: Colors
+                                                                            .black,
+                                                                        letterSpacing:
+                                                                            0,
+                                                                      ),
+                                                                ),
+                                                                TextSpan(
+                                                                  text:
+                                                                      '• Cáries, dentes quebrados ou desgastados, retração da gengiva, alterações nos dentes como “lesões cervicais não cariosas”, clareamento dental, corrosão nos dentes, entre outros, são causas comuns para dor e sensibilidade.\n\n• O consumo de alimentos quentes, frios ou doces pode agravar a dor e sensibilidade.\n\n',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: Colors
+                                                                        .black,
+                                                                  ),
+                                                                ),
+                                                                TextSpan(
+                                                                  text:
+                                                                      'O que fazer:\n\n• Marque uma consulta com o dentista para avaliação e tratamento adequado.\n\n• Em alguns casos, o uso de creme dental para dentes sensíveis pode ajudar a aliviar um pouco o desconforto.',
+                                                                  style:
+                                                                      TextStyle(),
+                                                                )
+                                                              ],
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: Colors
+                                                                        .black,
+                                                                    letterSpacing:
+                                                                        0,
+                                                                  ),
+                                                            ),
+                                                            textAlign:
+                                                                TextAlign.justify,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.all(4),
-                                        child: Card(
-                                          clipBehavior:
-                                              Clip.antiAliasWithSaveLayer,
-                                          color: Color(0xFF117BDF),
-                                          elevation: 4,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20),
-                                              bottomRight: Radius.circular(20),
-                                              topLeft: Radius.circular(20),
-                                              topRight: Radius.circular(20),
-                                            ),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                                child: Image.asset(
-                                                  'assets/images/carie.png',
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  height: 150,
-                                                  fit: BoxFit.cover,
-                                                ),
+                                      Visibility(
+                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural![2] == 'Sim'),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(4),
+                                          child: Card(
+                                            clipBehavior:
+                                                Clip.antiAliasWithSaveLayer,
+                                            color: Color(0xFF117BDF),
+                                            elevation: 4,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft: Radius.circular(20),
+                                                bottomRight: Radius.circular(20),
+                                                topLeft: Radius.circular(20),
+                                                topRight: Radius.circular(20),
                                               ),
-                                              Padding(
-                                                padding: EdgeInsets.all(6),
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(20),
-                                                      bottomRight:
-                                                          Radius.circular(20),
-                                                      topLeft:
-                                                          Radius.circular(10),
-                                                      topRight:
-                                                          Radius.circular(10),
-                                                    ),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                  child: Image.asset(
+                                                    'assets/images/carie.png',
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    height: 150,
+                                                    fit: BoxFit.cover,
                                                   ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(6),
-                                                        child: Text(
-                                                          'ESTOU COM CÁRIE NO DENTE E AGORA?',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: Colors
-                                                                    .black,
-                                                                letterSpacing:
-                                                                    0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                        ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(6),
+                                                  child: Container(
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(20),
+                                                        bottomRight:
+                                                            Radius.circular(20),
+                                                        topLeft:
+                                                            Radius.circular(10),
+                                                        topRight:
+                                                            Radius.circular(10),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(10),
-                                                        child: RichText(
-                                                          textScaler:
-                                                              MediaQuery.of(
-                                                                      context)
-                                                                  .textScaler,
-                                                          text: TextSpan(
-                                                            children: [
-                                                              TextSpan(
-                                                                text:
-                                                                    'A cárie é um buraco no dente causado por bactérias que danificam a sua estrutura. Se você tem um buraco (cárie) no dente, é importante lembrar:\n\n',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: Colors
-                                                                          .black,
-                                                                      letterSpacing:
-                                                                          0,
-                                                                    ),
-                                                              ),
-                                                              TextSpan(
-                                                                text:
-                                                                    '• Elas podem causar dor e infecção se não forem tratadas.\n\n• Somente o dentista pode tratar a cárie. Não é possível resolver esse problema em casa.\n\n• Mesmo que a cárie não esteja causando dor, ela precisa ser tratada o quanto antes para evitar que se agrave.\n\n',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: Colors
-                                                                      .black,
-                                                                  fontStyle:
-                                                                      FontStyle
-                                                                          .normal,
-                                                                ),
-                                                              ),
-                                                              TextSpan(
-                                                                text:
-                                                                    'O que fazer:\n\n• Marque uma consulta com o dentista para remover a cárie e restaurar o dente.\n\n• Escove os dentes pelo menos três vezes ao dia e use fio dental diariamente para prevenir novas cáries.',
-                                                                style:
-                                                                    TextStyle(),
-                                                              )
-                                                            ],
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(6),
+                                                          child: Text(
+                                                            'ESTOU COM CÁRIE NO DENTE E AGORA?',
+                                                            textAlign:
+                                                                TextAlign.center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -716,132 +668,144 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                                                       .black,
                                                                   letterSpacing:
                                                                       0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
                                                                 ),
                                                           ),
-                                                          textAlign:
-                                                              TextAlign.justify,
                                                         ),
-                                                      ),
-                                                    ],
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(10),
+                                                          child: RichText(
+                                                            textScaler:
+                                                                MediaQuery.of(
+                                                                        context)
+                                                                    .textScaler,
+                                                            text: TextSpan(
+                                                              children: [
+                                                                TextSpan(
+                                                                  text:
+                                                                      'A cárie é um buraco no dente causado por bactérias que danificam a sua estrutura. Se você tem um buraco (cárie) no dente, é importante lembrar:\n\n',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: Colors
+                                                                            .black,
+                                                                        letterSpacing:
+                                                                            0,
+                                                                      ),
+                                                                ),
+                                                                TextSpan(
+                                                                  text:
+                                                                      '• Elas podem causar dor e infecção se não forem tratadas.\n\n• Somente o dentista pode tratar a cárie. Não é possível resolver esse problema em casa.\n\n• Mesmo que a cárie não esteja causando dor, ela precisa ser tratada o quanto antes para evitar que se agrave.\n\n',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: Colors
+                                                                        .black,
+                                                                    fontStyle:
+                                                                        FontStyle
+                                                                            .normal,
+                                                                  ),
+                                                                ),
+                                                                TextSpan(
+                                                                  text:
+                                                                      'O que fazer:\n\n• Marque uma consulta com o dentista para remover a cárie e restaurar o dente.\n\n• Escove os dentes pelo menos três vezes ao dia e use fio dental diariamente para prevenir novas cáries.',
+                                                                  style:
+                                                                      TextStyle(),
+                                                                )
+                                                              ],
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: Colors
+                                                                        .black,
+                                                                    letterSpacing:
+                                                                        0,
+                                                                  ),
+                                                            ),
+                                                            textAlign:
+                                                                TextAlign.justify,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.all(4),
-                                        child: Card(
-                                          clipBehavior:
-                                              Clip.antiAliasWithSaveLayer,
-                                          color: Color(0xFF117BDF),
-                                          elevation: 4,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20),
-                                              bottomRight: Radius.circular(20),
-                                              topLeft: Radius.circular(20),
-                                              topRight: Radius.circular(20),
-                                            ),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                                child: Image.asset(
-                                                  'assets/images/machasFeridas.jpg',
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  height: 150,
-                                                  fit: BoxFit.cover,
-                                                ),
+                                      Visibility(
+                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural![3] == 'Sim'),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(4),
+                                          child: Card(
+                                            clipBehavior:
+                                                Clip.antiAliasWithSaveLayer,
+                                            color: Color(0xFF117BDF),
+                                            elevation: 4,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft: Radius.circular(20),
+                                                bottomRight: Radius.circular(20),
+                                                topLeft: Radius.circular(20),
+                                                topRight: Radius.circular(20),
                                               ),
-                                              Padding(
-                                                padding: EdgeInsets.all(6),
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(20),
-                                                      bottomRight:
-                                                          Radius.circular(20),
-                                                      topLeft:
-                                                          Radius.circular(10),
-                                                      topRight:
-                                                          Radius.circular(10),
-                                                    ),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                  child: Image.asset(
+                                                    'assets/images/machasFeridas.jpg',
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    height: 150,
+                                                    fit: BoxFit.cover,
                                                   ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(6),
-                                                        child: Text(
-                                                          'SINAIS DE ALERTA PARA MANCHAS E FERIDAS NA BOCA',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: Colors
-                                                                    .black,
-                                                                letterSpacing:
-                                                                    0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                        ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(6),
+                                                  child: Container(
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(20),
+                                                        bottomRight:
+                                                            Radius.circular(20),
+                                                        topLeft:
+                                                            Radius.circular(10),
+                                                        topRight:
+                                                            Radius.circular(10),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(10),
-                                                        child: RichText(
-                                                          textScaler:
-                                                              MediaQuery.of(
-                                                                      context)
-                                                                  .textScaler,
-                                                          text: TextSpan(
-                                                            children: [
-                                                              TextSpan(
-                                                                text:
-                                                                    'Manchas e feridas que não somem em 15 dias podem ser preocupantes. Podem indicar infecções, lesões pré-cancerígenas ou câncer bucal.\n\n',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: Colors
-                                                                          .black,
-                                                                      letterSpacing:
-                                                                          0,
-                                                                    ),
-                                                              ),
-                                                              TextSpan(
-                                                                text:
-                                                                    'O que fazer:\n\n• Marque o quanto antes uma consulta com o dentista ou médico para uma avaliação.\n\n• Evite muita exposição ao sol, fumar e beber álcool, pois podem aumentar o risco de câncer bucal.\n\n• Tenha o hábito de sempre realizar o autoexame bucal, observado se há alterações nos dentes, língua, gengiva garganta e mucosas.\n\n• Muitas lesões na boca podem não gerar dor mas merecem atenção pois podem indicar doenças silenciosas.',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: Colors
-                                                                      .black,
-                                                                ),
-                                                              )
-                                                            ],
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(6),
+                                                          child: Text(
+                                                            'SINAIS DE ALERTA PARA MANCHAS E FERIDAS NA BOCA',
+                                                            textAlign:
+                                                                TextAlign.center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -852,132 +816,135 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                                                       .black,
                                                                   letterSpacing:
                                                                       0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
                                                                 ),
                                                           ),
-                                                          textAlign:
-                                                              TextAlign.justify,
                                                         ),
-                                                      ),
-                                                    ],
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(10),
+                                                          child: RichText(
+                                                            textScaler:
+                                                                MediaQuery.of(
+                                                                        context)
+                                                                    .textScaler,
+                                                            text: TextSpan(
+                                                              children: [
+                                                                TextSpan(
+                                                                  text:
+                                                                      'Manchas e feridas que não somem em 15 dias podem ser preocupantes. Podem indicar infecções, lesões pré-cancerígenas ou câncer bucal.\n\n',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: Colors
+                                                                            .black,
+                                                                        letterSpacing:
+                                                                            0,
+                                                                      ),
+                                                                ),
+                                                                TextSpan(
+                                                                  text:
+                                                                      'O que fazer:\n\n• Marque o quanto antes uma consulta com o dentista ou médico para uma avaliação.\n\n• Evite muita exposição ao sol, fumar e beber álcool, pois podem aumentar o risco de câncer bucal.\n\n• Tenha o hábito de sempre realizar o autoexame bucal, observado se há alterações nos dentes, língua, gengiva garganta e mucosas.\n\n• Muitas lesões na boca podem não gerar dor mas merecem atenção pois podem indicar doenças silenciosas.',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: Colors
+                                                                        .black,
+                                                                  ),
+                                                                )
+                                                              ],
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: Colors
+                                                                        .black,
+                                                                    letterSpacing:
+                                                                        0,
+                                                                  ),
+                                                            ),
+                                                            textAlign:
+                                                                TextAlign.justify,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.all(4),
-                                        child: Card(
-                                          clipBehavior:
-                                              Clip.antiAliasWithSaveLayer,
-                                          color: Color(0xFF117BDF),
-                                          elevation: 4,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20),
-                                              bottomRight: Radius.circular(20),
-                                              topLeft: Radius.circular(20),
-                                              topRight: Radius.circular(20),
-                                            ),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                                child: Image.asset(
-                                                  'assets/images/gengivaSangrando.jpg',
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  height: 150,
-                                                  fit: BoxFit.cover,
-                                                ),
+                                      Visibility(
+                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural![4] != 'Não'),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(4),
+                                          child: Card(
+                                            clipBehavior:
+                                                Clip.antiAliasWithSaveLayer,
+                                            color: Color(0xFF117BDF),
+                                            elevation: 4,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft: Radius.circular(20),
+                                                bottomRight: Radius.circular(20),
+                                                topLeft: Radius.circular(20),
+                                                topRight: Radius.circular(20),
                                               ),
-                                              Padding(
-                                                padding: EdgeInsets.all(6),
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(20),
-                                                      bottomRight:
-                                                          Radius.circular(20),
-                                                      topLeft:
-                                                          Radius.circular(10),
-                                                      topRight:
-                                                          Radius.circular(10),
-                                                    ),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                  child: Image.asset(
+                                                    'assets/images/gengivaSangrando.jpg',
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    height: 150,
+                                                    fit: BoxFit.cover,
                                                   ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(6),
-                                                        child: Text(
-                                                          'MINHA GENGIVA ESTÁ SANGRANDO. É NORMAL?',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: Colors
-                                                                    .black,
-                                                                letterSpacing:
-                                                                    0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                        ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(6),
+                                                  child: Container(
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(20),
+                                                        bottomRight:
+                                                            Radius.circular(20),
+                                                        topLeft:
+                                                            Radius.circular(10),
+                                                        topRight:
+                                                            Radius.circular(10),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(10),
-                                                        child: RichText(
-                                                          textScaler:
-                                                              MediaQuery.of(
-                                                                      context)
-                                                                  .textScaler,
-                                                          text: TextSpan(
-                                                            children: [
-                                                              TextSpan(
-                                                                text:
-                                                                    'Sangramento na gengiva não é normal nem mesmo ao escovar ou usar fio dental, pode ser um sinal de gengivite. A gengivite é uma inflamação da gengiva causada pelo acúmulo de placa bacteriana (sujeiras).\n\n',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: Colors
-                                                                          .black,
-                                                                      letterSpacing:
-                                                                          0,
-                                                                    ),
-                                                              ),
-                                                              TextSpan(
-                                                                text:
-                                                                    'O que fazer:\n\n• Escove os dentes pelo menos 3 vezes ao dia e use fio dental diariamente.\n\n• Visite o dentista para uma limpeza profissional e orientação de higiene bucal.',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: Colors
-                                                                      .black,
-                                                                ),
-                                                              )
-                                                            ],
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(6),
+                                                          child: Text(
+                                                            'MINHA GENGIVA ESTÁ SANGRANDO. É NORMAL?',
+                                                            textAlign:
+                                                                TextAlign.center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -988,132 +955,135 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                                                       .black,
                                                                   letterSpacing:
                                                                       0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
                                                                 ),
                                                           ),
-                                                          textAlign:
-                                                              TextAlign.justify,
                                                         ),
-                                                      ),
-                                                    ],
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(10),
+                                                          child: RichText(
+                                                            textScaler:
+                                                                MediaQuery.of(
+                                                                        context)
+                                                                    .textScaler,
+                                                            text: TextSpan(
+                                                              children: [
+                                                                TextSpan(
+                                                                  text:
+                                                                      'Sangramento na gengiva não é normal nem mesmo ao escovar ou usar fio dental, pode ser um sinal de gengivite. A gengivite é uma inflamação da gengiva causada pelo acúmulo de placa bacteriana (sujeiras).\n\n',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: Colors
+                                                                            .black,
+                                                                        letterSpacing:
+                                                                            0,
+                                                                      ),
+                                                                ),
+                                                                TextSpan(
+                                                                  text:
+                                                                      'O que fazer:\n\n• Escove os dentes pelo menos 3 vezes ao dia e use fio dental diariamente.\n\n• Visite o dentista para uma limpeza profissional e orientação de higiene bucal.',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: Colors
+                                                                        .black,
+                                                                  ),
+                                                                )
+                                                              ],
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: Colors
+                                                                        .black,
+                                                                    letterSpacing:
+                                                                        0,
+                                                                  ),
+                                                            ),
+                                                            textAlign:
+                                                                TextAlign.justify,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.all(4),
-                                        child: Card(
-                                          clipBehavior:
-                                              Clip.antiAliasWithSaveLayer,
-                                          color: Color(0xFF117BDF),
-                                          elevation: 4,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20),
-                                              bottomRight: Radius.circular(20),
-                                              topLeft: Radius.circular(20),
-                                              topRight: Radius.circular(20),
-                                            ),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                                child: Image.asset(
-                                                  'assets/images/dentesAmolecendo.jpg',
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  height: 150,
-                                                  fit: BoxFit.cover,
-                                                ),
+                                      Visibility(
+                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural![5] == 'Sim'),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(4),
+                                          child: Card(
+                                            clipBehavior:
+                                                Clip.antiAliasWithSaveLayer,
+                                            color: Color(0xFF117BDF),
+                                            elevation: 4,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft: Radius.circular(20),
+                                                bottomRight: Radius.circular(20),
+                                                topLeft: Radius.circular(20),
+                                                topRight: Radius.circular(20),
                                               ),
-                                              Padding(
-                                                padding: EdgeInsets.all(6),
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(20),
-                                                      bottomRight:
-                                                          Radius.circular(20),
-                                                      topLeft:
-                                                          Radius.circular(10),
-                                                      topRight:
-                                                          Radius.circular(10),
-                                                    ),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                  child: Image.asset(
+                                                    'assets/images/dentesAmolecendo.jpg',
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    height: 150,
+                                                    fit: BoxFit.cover,
                                                   ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(6),
-                                                        child: Text(
-                                                          'DENTES AMOLECENDO? ENTENDA',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: Colors
-                                                                    .black,
-                                                                letterSpacing:
-                                                                    0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                        ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(6),
+                                                  child: Container(
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(20),
+                                                        bottomRight:
+                                                            Radius.circular(20),
+                                                        topLeft:
+                                                            Radius.circular(10),
+                                                        topRight:
+                                                            Radius.circular(10),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(10),
-                                                        child: RichText(
-                                                          textScaler:
-                                                              MediaQuery.of(
-                                                                      context)
-                                                                  .textScaler,
-                                                          text: TextSpan(
-                                                            children: [
-                                                              TextSpan(
-                                                                text:
-                                                                    'Dentes amolecidos podem ser sinais de problemas graves que podem gerar a perda do(s) dente(s). Podem ser causados por doenças na gengiva conhecidas como \"doenças periodontais\", que incluem inflamações na gengiva, tártaro ou perdas de suporte ósseo, podem ainda estar relacionados a traumas dentários ou infecções nas raízes dos dentes.\n\n',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: Colors
-                                                                          .black,
-                                                                      letterSpacing:
-                                                                          0,
-                                                                    ),
-                                                              ),
-                                                              TextSpan(
-                                                                text:
-                                                                    'O que fazer:\n\n• Marque uma consulta com o dentista imediatamente.\n\n• Siga as orientações de higiene bucal e tratamentos indicados pelo dentista.\n\n• Visite o dentista regularmente. ',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: Colors
-                                                                      .black,
-                                                                ),
-                                                              )
-                                                            ],
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(6),
+                                                          child: Text(
+                                                            'DENTES AMOLECENDO? ENTENDA',
+                                                            textAlign:
+                                                                TextAlign.center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -1124,132 +1094,135 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                                                       .black,
                                                                   letterSpacing:
                                                                       0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
                                                                 ),
                                                           ),
-                                                          textAlign:
-                                                              TextAlign.justify,
                                                         ),
-                                                      ),
-                                                    ],
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(10),
+                                                          child: RichText(
+                                                            textScaler:
+                                                                MediaQuery.of(
+                                                                        context)
+                                                                    .textScaler,
+                                                            text: TextSpan(
+                                                              children: [
+                                                                TextSpan(
+                                                                  text:
+                                                                      'Dentes amolecidos podem ser sinais de problemas graves que podem gerar a perda do(s) dente(s). Podem ser causados por doenças na gengiva conhecidas como \"doenças periodontais\", que incluem inflamações na gengiva, tártaro ou perdas de suporte ósseo, podem ainda estar relacionados a traumas dentários ou infecções nas raízes dos dentes.\n\n',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: Colors
+                                                                            .black,
+                                                                        letterSpacing:
+                                                                            0,
+                                                                      ),
+                                                                ),
+                                                                TextSpan(
+                                                                  text:
+                                                                      'O que fazer:\n\n• Marque uma consulta com o dentista imediatamente.\n\n• Siga as orientações de higiene bucal e tratamentos indicados pelo dentista.\n\n• Visite o dentista regularmente. ',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: Colors
+                                                                        .black,
+                                                                  ),
+                                                                )
+                                                              ],
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: Colors
+                                                                        .black,
+                                                                    letterSpacing:
+                                                                        0,
+                                                                  ),
+                                                            ),
+                                                            textAlign:
+                                                                TextAlign.justify,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.all(4),
-                                        child: Card(
-                                          clipBehavior:
-                                              Clip.antiAliasWithSaveLayer,
-                                          color: Color(0xFF117BDF),
-                                          elevation: 4,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20),
-                                              bottomRight: Radius.circular(20),
-                                              topLeft: Radius.circular(20),
-                                              topRight: Radius.circular(20),
-                                            ),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                                child: Image.asset(
-                                                  'assets/images/mauHalito.jpg',
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  height: 150,
-                                                  fit: BoxFit.cover,
-                                                ),
+                                      Visibility(
+                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural![6] != 'Não'),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(4),
+                                          child: Card(
+                                            clipBehavior:
+                                                Clip.antiAliasWithSaveLayer,
+                                            color: Color(0xFF117BDF),
+                                            elevation: 4,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft: Radius.circular(20),
+                                                bottomRight: Radius.circular(20),
+                                                topLeft: Radius.circular(20),
+                                                topRight: Radius.circular(20),
                                               ),
-                                              Padding(
-                                                padding: EdgeInsets.all(6),
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(20),
-                                                      bottomRight:
-                                                          Radius.circular(20),
-                                                      topLeft:
-                                                          Radius.circular(10),
-                                                      topRight:
-                                                          Radius.circular(10),
-                                                    ),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                  child: Image.asset(
+                                                    'assets/images/mauHalito.jpg',
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    height: 150,
+                                                    fit: BoxFit.cover,
                                                   ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(6),
-                                                        child: Text(
-                                                          'MAU HÁLITO? SAIBA COMO RESOLVER',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: Colors
-                                                                    .black,
-                                                                letterSpacing:
-                                                                    0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                        ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(6),
+                                                  child: Container(
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(20),
+                                                        bottomRight:
+                                                            Radius.circular(20),
+                                                        topLeft:
+                                                            Radius.circular(10),
+                                                        topRight:
+                                                            Radius.circular(10),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(10),
-                                                        child: RichText(
-                                                          textScaler:
-                                                              MediaQuery.of(
-                                                                      context)
-                                                                  .textScaler,
-                                                          text: TextSpan(
-                                                            children: [
-                                                              TextSpan(
-                                                                text:
-                                                                    'Mau hálito pode ser causado por má higiene bucal, alimentos ou problemas de saúde.\n\n',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: Colors
-                                                                          .black,
-                                                                      letterSpacing:
-                                                                          0,
-                                                                    ),
-                                                              ),
-                                                              TextSpan(
-                                                                text:
-                                                                    'O que fazer:\n\n• Escove os dentes e a língua pelo menos três vezes ao dia, a maioria dos casos de mau hálito estão relacionados a má higiene bucal.\n\n• Use fio dental diariamente.\n\n• Beba bastante água.\n\n• Doenças como: cárie, inflamação na gengiva, problemas intestinais ou no trato respiratório, entre outros, podem estar relacionados ao mau hálito.\n\n• Visite o dentista regularmente para identificar e tratar a causa do mau hálito.',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: Colors
-                                                                      .black,
-                                                                ),
-                                                              )
-                                                            ],
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(6),
+                                                          child: Text(
+                                                            'MAU HÁLITO? SAIBA COMO RESOLVER',
+                                                            textAlign:
+                                                                TextAlign.center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -1260,132 +1233,135 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                                                       .black,
                                                                   letterSpacing:
                                                                       0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
                                                                 ),
                                                           ),
-                                                          textAlign:
-                                                              TextAlign.justify,
                                                         ),
-                                                      ),
-                                                    ],
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(10),
+                                                          child: RichText(
+                                                            textScaler:
+                                                                MediaQuery.of(
+                                                                        context)
+                                                                    .textScaler,
+                                                            text: TextSpan(
+                                                              children: [
+                                                                TextSpan(
+                                                                  text:
+                                                                      'Mau hálito pode ser causado por má higiene bucal, alimentos ou problemas de saúde.\n\n',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: Colors
+                                                                            .black,
+                                                                        letterSpacing:
+                                                                            0,
+                                                                      ),
+                                                                ),
+                                                                TextSpan(
+                                                                  text:
+                                                                      'O que fazer:\n\n• Escove os dentes e a língua pelo menos três vezes ao dia, a maioria dos casos de mau hálito estão relacionados a má higiene bucal.\n\n• Use fio dental diariamente.\n\n• Beba bastante água.\n\n• Doenças como: cárie, inflamação na gengiva, problemas intestinais ou no trato respiratório, entre outros, podem estar relacionados ao mau hálito.\n\n• Visite o dentista regularmente para identificar e tratar a causa do mau hálito.',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: Colors
+                                                                        .black,
+                                                                  ),
+                                                                )
+                                                              ],
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: Colors
+                                                                        .black,
+                                                                    letterSpacing:
+                                                                        0,
+                                                                  ),
+                                                            ),
+                                                            textAlign:
+                                                                TextAlign.justify,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.all(4),
-                                        child: Card(
-                                          clipBehavior:
-                                              Clip.antiAliasWithSaveLayer,
-                                          color: Color(0xFF117BDF),
-                                          elevation: 4,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20),
-                                              bottomRight: Radius.circular(20),
-                                              topLeft: Radius.circular(20),
-                                              topRight: Radius.circular(20),
-                                            ),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                                child: Image.asset(
-                                                  'assets/images/tempoDentista.jpg',
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  height: 150,
-                                                  fit: BoxFit.cover,
-                                                ),
+                                      Visibility(
+                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural![7] == 'Não'),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(4),
+                                          child: Card(
+                                            clipBehavior:
+                                                Clip.antiAliasWithSaveLayer,
+                                            color: Color(0xFF117BDF),
+                                            elevation: 4,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft: Radius.circular(20),
+                                                bottomRight: Radius.circular(20),
+                                                topLeft: Radius.circular(20),
+                                                topRight: Radius.circular(20),
                                               ),
-                                              Padding(
-                                                padding: EdgeInsets.all(6),
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(20),
-                                                      bottomRight:
-                                                          Radius.circular(20),
-                                                      topLeft:
-                                                          Radius.circular(10),
-                                                      topRight:
-                                                          Radius.circular(10),
-                                                    ),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                  child: Image.asset(
+                                                    'assets/images/tempoDentista.jpg',
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    height: 150,
+                                                    fit: BoxFit.cover,
                                                   ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(6),
-                                                        child: Text(
-                                                          'DE QUANTO EM QUANTO TEMPO DEVO IR AO DENTISTA?',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: Colors
-                                                                    .black,
-                                                                letterSpacing:
-                                                                    0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                        ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(6),
+                                                  child: Container(
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(20),
+                                                        bottomRight:
+                                                            Radius.circular(20),
+                                                        topLeft:
+                                                            Radius.circular(10),
+                                                        topRight:
+                                                            Radius.circular(10),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(10),
-                                                        child: RichText(
-                                                          textScaler:
-                                                              MediaQuery.of(
-                                                                      context)
-                                                                  .textScaler,
-                                                          text: TextSpan(
-                                                            children: [
-                                                              TextSpan(
-                                                                text:
-                                                                    'Visitas regulares ao dentista são essenciais para manter a saúde bucal.\n\n• A maioria das pessoas deve visitar o dentista a cada 6 meses para evitar doenças ou agravamentos bucais.\n\n• Pessoas com alterações bucais podem precisar de visitas mais frequentes.\n\n',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: Colors
-                                                                          .black,
-                                                                      letterSpacing:
-                                                                          0,
-                                                                    ),
-                                                              ),
-                                                              TextSpan(
-                                                                text:
-                                                                    'O que fazer:\n\n• Agende suas consultas com antecedência e siga as orientações do seu dentista.',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: Colors
-                                                                      .black,
-                                                                ),
-                                                              )
-                                                            ],
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(6),
+                                                          child: Text(
+                                                            'DE QUANTO EM QUANTO TEMPO DEVO IR AO DENTISTA?',
+                                                            textAlign:
+                                                                TextAlign.center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -1396,132 +1372,135 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                                                       .black,
                                                                   letterSpacing:
                                                                       0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
                                                                 ),
                                                           ),
-                                                          textAlign:
-                                                              TextAlign.justify,
                                                         ),
-                                                      ),
-                                                    ],
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(10),
+                                                          child: RichText(
+                                                            textScaler:
+                                                                MediaQuery.of(
+                                                                        context)
+                                                                    .textScaler,
+                                                            text: TextSpan(
+                                                              children: [
+                                                                TextSpan(
+                                                                  text:
+                                                                      'Visitas regulares ao dentista são essenciais para manter a saúde bucal.\n\n• A maioria das pessoas deve visitar o dentista a cada 6 meses para evitar doenças ou agravamentos bucais.\n\n• Pessoas com alterações bucais podem precisar de visitas mais frequentes.\n\n',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: Colors
+                                                                            .black,
+                                                                        letterSpacing:
+                                                                            0,
+                                                                      ),
+                                                                ),
+                                                                TextSpan(
+                                                                  text:
+                                                                      'O que fazer:\n\n• Agende suas consultas com antecedência e siga as orientações do seu dentista.',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: Colors
+                                                                        .black,
+                                                                  ),
+                                                                )
+                                                              ],
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: Colors
+                                                                        .black,
+                                                                    letterSpacing:
+                                                                        0,
+                                                                  ),
+                                                            ),
+                                                            textAlign:
+                                                                TextAlign.justify,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.all(4),
-                                        child: Card(
-                                          clipBehavior:
-                                              Clip.antiAliasWithSaveLayer,
-                                          color: Color(0xFF117BDF),
-                                          elevation: 4,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20),
-                                              bottomRight: Radius.circular(20),
-                                              topLeft: Radius.circular(20),
-                                              topRight: Radius.circular(20),
-                                            ),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                                child: Image.asset(
-                                                  'assets/images/escovacao.jpg',
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  height: 150,
-                                                  fit: BoxFit.cover,
-                                                ),
+                                      Visibility(
+                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural?[8] != 'Sim' || Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural?[9] != 'Sim'),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(4),
+                                          child: Card(
+                                            clipBehavior:
+                                                Clip.antiAliasWithSaveLayer,
+                                            color: Color(0xFF117BDF),
+                                            elevation: 4,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft: Radius.circular(20),
+                                                bottomRight: Radius.circular(20),
+                                                topLeft: Radius.circular(20),
+                                                topRight: Radius.circular(20),
                                               ),
-                                              Padding(
-                                                padding: EdgeInsets.all(6),
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(20),
-                                                      bottomRight:
-                                                          Radius.circular(20),
-                                                      topLeft:
-                                                          Radius.circular(10),
-                                                      topRight:
-                                                          Radius.circular(10),
-                                                    ),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                  child: Image.asset(
+                                                    'assets/images/escovacao.jpg',
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    height: 150,
+                                                    fit: BoxFit.cover,
                                                   ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(6),
-                                                        child: Text(
-                                                          'DICAS DE ESCOVAÇÃO E HIGIENE ORAL',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: Colors
-                                                                    .black,
-                                                                letterSpacing:
-                                                                    0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                        ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(6),
+                                                  child: Container(
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(20),
+                                                        bottomRight:
+                                                            Radius.circular(20),
+                                                        topLeft:
+                                                            Radius.circular(10),
+                                                        topRight:
+                                                            Radius.circular(10),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(10),
-                                                        child: RichText(
-                                                          textScaler:
-                                                              MediaQuery.of(
-                                                                      context)
-                                                                  .textScaler,
-                                                          text: TextSpan(
-                                                            children: [
-                                                              TextSpan(
-                                                                text:
-                                                                    'Uma boa higiene bucal é a base para dentes e gengivas saudáveis.\n\n',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: Colors
-                                                                          .black,
-                                                                      letterSpacing:
-                                                                          0,
-                                                                    ),
-                                                              ),
-                                                              TextSpan(
-                                                                text:
-                                                                    '• Escove os dentes após as refeições ou pelo menos três vezes ao dia.\n\n• Use fio dental diariamente para remover a placa entre os dentes.\n\n• Use enxaguante bucal quando recomendado pelo dentista.\n\n• Troque a escova de dentes a cada 3 meses, após resfriados ou quando as cerdas estiverem gastas.\n\n• Faça uso de escovas com cerdas macias e de preferência com cabeças pequenas e arredondadas pois facilitam a remoção de resíduos. \n\n• Utilize cremes dentais com flúor.\n\n• Evite cremes dentais com carvão ativado e promessas de clareamento dental pois na maioria das vezes são abrasivos e podem desgastar os dentes. \n\n• Não compartilhe escovas dentais, é um item de uso pessoal e algumas doenças podem ser transmitidas nesse compartilhamento. ',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: Colors
-                                                                      .black,
-                                                                ),
-                                                              )
-                                                            ],
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(6),
+                                                          child: Text(
+                                                            'DICAS DE ESCOVAÇÃO E HIGIENE ORAL',
+                                                            textAlign:
+                                                                TextAlign.center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -1532,17 +1511,69 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                                                       .black,
                                                                   letterSpacing:
                                                                       0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
                                                                 ),
                                                           ),
-                                                          textAlign:
-                                                              TextAlign.justify,
                                                         ),
-                                                      ),
-                                                    ],
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(10),
+                                                          child: RichText(
+                                                            textScaler:
+                                                                MediaQuery.of(
+                                                                        context)
+                                                                    .textScaler,
+                                                            text: TextSpan(
+                                                              children: [
+                                                                TextSpan(
+                                                                  text:
+                                                                      'Uma boa higiene bucal é a base para dentes e gengivas saudáveis.\n\n',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: Colors
+                                                                            .black,
+                                                                        letterSpacing:
+                                                                            0,
+                                                                      ),
+                                                                ),
+                                                                TextSpan(
+                                                                  text:
+                                                                      '• Escove os dentes após as refeições ou pelo menos três vezes ao dia.\n\n• Use fio dental diariamente para remover a placa entre os dentes.\n\n• Use enxaguante bucal quando recomendado pelo dentista.\n\n• Troque a escova de dentes a cada 3 meses, após resfriados ou quando as cerdas estiverem gastas.\n\n• Faça uso de escovas com cerdas macias e de preferência com cabeças pequenas e arredondadas pois facilitam a remoção de resíduos. \n\n• Utilize cremes dentais com flúor.\n\n• Evite cremes dentais com carvão ativado e promessas de clareamento dental pois na maioria das vezes são abrasivos e podem desgastar os dentes. \n\n• Não compartilhe escovas dentais, é um item de uso pessoal e algumas doenças podem ser transmitidas nesse compartilhamento. ',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: Colors
+                                                                        .black,
+                                                                  ),
+                                                                )
+                                                              ],
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: Colors
+                                                                        .black,
+                                                                    letterSpacing:
+                                                                        0,
+                                                                  ),
+                                                            ),
+                                                            textAlign:
+                                                                TextAlign.justify,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),

@@ -1,4 +1,7 @@
+import 'package:sorriso_consciente/db/banco.dart';
 import 'package:sorriso_consciente/db/dbfirestore.dart';
+import 'package:sorriso_consciente/db/historic.dart';
+import 'package:sorriso_consciente/flutter_flow/flutter_flow_util.dart';
 import 'package:sorriso_consciente/provider/perguntas_dente_natural_provider.dart';
 import 'package:sorriso_consciente/provider/perguntas_iniciais_provider.dart';
 import 'package:sorriso_consciente/provider/perguntas_sem_dente_natural_provider.dart';
@@ -18,14 +21,38 @@ class FirestoreService {
 
     try {
       FirebaseFirestore _firebaseFirestore = await DBFirestore.instance.databaseFB;
-      
-      if (denteNaturalData != null) {
+
+      //Armazena localmente e no firestore caso tenha escolhido que possui dente natural
+      if (perguntas_dente_natural_provider != null) {
+        //Local
+        var _db = await Banco.instance.inserirHistorico(
+          Historic(
+            pontuacao: perguntas_dente_natural_provider.pontuacao!, 
+            date: DateTime.now(), 
+            resultado: perguntas_dente_natural_provider.resultado!,
+            )
+          );
+
+        //Firestore
         combinedData.addAll(iniciaisData);
-        combinedData.addAll(denteNaturalData);
+        combinedData.addAll(denteNaturalData!);
         await _firebaseFirestore.collection('perguntas').add(combinedData);
-      } else if (semDenteNaturalData != null) {
+      }
+
+      //Armazena localmente e no firestore caso tenha escolhido que não possui dente natural
+      if (perguntas_sem_dente_natural_provider != null) {
+        //Local
+        var _db = await Banco.instance.inserirHistorico(
+          Historic(
+            pontuacao: perguntas_sem_dente_natural_provider.pontuacao!, 
+            date: DateTime.now(), 
+            resultado: perguntas_sem_dente_natural_provider.resultado!,
+            )
+          );
+
+        //Firestore
         combinedData.addAll(iniciaisData);
-        combinedData.addAll(semDenteNaturalData);
+        combinedData.addAll(semDenteNaturalData!);
         await _firebaseFirestore.collection('perguntas').add(combinedData);
       }
 

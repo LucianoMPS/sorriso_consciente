@@ -1,3 +1,4 @@
+import 'package:sorriso_consciente/db/historic.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -21,17 +22,17 @@ class Banco {
   Future _onCreate(Database db, int version) async {
     await db.execute('''
       CREATE TABLE historico (
-        id INTEGER PRIMARY KEY AUTOINCREMENT
-        data DATE,
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        data DATETIME,
         pontuacao INTEGER,
         resultado TEXT
       )
     ''');
   }
   
-  Future<void> inserirHistorico(Map<String, dynamic> historico) async {
+  Future<void> inserirHistorico(Historic historico) async {
     final db = await database;
-    await db.insert('historico', historico);
+    await db.insert('historico', historico.toMap());
   }
 
   Future close() async {

@@ -944,6 +944,7 @@ class _PerguntasIniciaisWidgetState extends State<PerguntasIniciaisWidget> {
                                         }
                                         _model.idade = int.tryParse(
                                             _model.textController.text);
+                                            
                                         if ((_model.radioButtonValue1 == 'Sim') ||
                                             (_model.radioButtonValue2 == 'Sim') ||
                                             (_model.radioButtonValue3 == 'Sim') ||
@@ -984,21 +985,27 @@ class _PerguntasIniciaisWidgetState extends State<PerguntasIniciaisWidget> {
                                               );
                                             },
                                           ).then((value) => setState(() {}));
-                                
-                                          Provider.of<PerguntasIniciaisProvider>(context, listen: false).addAnswer(_model);
 
                                           if (_model.radioButtonValue7 == 'Sim') {
+                                            Provider.of<PerguntasIniciaisProvider>(context, listen: false).clear();
+                                            Provider.of<PerguntasIniciaisProvider>(context, listen: false).addAnswer(_model);
                                             context.pushNamed(
                                                 'PerguntasDenteNatural');
                                           } else {
+                                            Provider.of<PerguntasIniciaisProvider>(context, listen: false).clear();
+                                            Provider.of<PerguntasIniciaisProvider>(context, listen: false).addAnswer(_model);
                                             context.pushNamed(
                                                 'PerguntasSemDenteNatural');
                                           }
                                         } else {
                                           if (_model.radioButtonValue7 == 'Sim') {
+                                            Provider.of<PerguntasIniciaisProvider>(context, listen: false).clear();
+                                            Provider.of<PerguntasIniciaisProvider>(context, listen: false).addAnswer(_model);
                                             context.pushNamed(
                                                 'PerguntasDenteNatural');
                                           } else {
+                                            Provider.of<PerguntasIniciaisProvider>(context, listen: false).clear();
+                                            Provider.of<PerguntasIniciaisProvider>(context, listen: false).addAnswer(_model);
                                             context.pushNamed(
                                                 'PerguntasSemDenteNatural');
                                           }

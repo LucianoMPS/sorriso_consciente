@@ -809,12 +809,14 @@ class _PerguntasSemDenteNaturalWidgetState
 
                                         return;
                                       }
+                                      Provider.of<PerguntasSemDenteNaturalProvider>(context, listen: false).clear();
+                                      Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).clear();
+
                                       _model.geraPontuacao();
                                       Provider.of<PerguntasSemDenteNaturalProvider>(context, listen: false).addAnswer(_model);
 
                                       FirestoreService.registerData(
                                         perguntas_iniciais_provider: Provider.of<PerguntasIniciaisProvider>(context, listen: false),
-                                        perguntas_dente_natural_provider: Provider.of<PerguntasDenteNaturalProvider>(context, listen: false),
                                         perguntas_sem_dente_natural_provider: Provider.of<PerguntasSemDenteNaturalProvider>(context, listen: false),
                                       );
 
