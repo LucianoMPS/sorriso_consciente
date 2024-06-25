@@ -1,3 +1,6 @@
+import 'package:sorriso_consciente/pages/perguntas_iniciais/perguntas_iniciais_model.dart';
+import 'package:sorriso_consciente/provider/perguntas_iniciais_provider.dart';
+
 import '/components/side_bar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -180,103 +183,54 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                               topRight: Radius.circular(20),
                                             ),
                                           ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                                child: Image.asset(
-                                                  'assets/images/unnamed.jpg',
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  height: 150,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsets.all(6),
-                                                child: Container(
-                                                  width:
-                                                      MediaQuery.sizeOf(context)
-                                                          .width,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(20),
-                                                      bottomRight:
-                                                          Radius.circular(20),
-                                                      topLeft:
-                                                          Radius.circular(10),
-                                                      topRight:
-                                                          Radius.circular(10),
-                                                    ),
+                                          child: Visibility(
+                                            visible: (Provider.of<PerguntasIniciaisProvider>(context, listen: false).perguntas_iniciais?[6] == 'Não'),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                  child: Image.asset(
+                                                    'assets/images/unnamed.jpg',
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    height: 150,
+                                                    fit: BoxFit.cover,
                                                   ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(6),
-                                                        child: Text(
-                                                          'CUIDADOS COM A PRÓTESE',
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: Colors
-                                                                    .black,
-                                                                letterSpacing:
-                                                                    0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                        ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsets.all(6),
+                                                  child: Container(
+                                                    width:
+                                                        MediaQuery.sizeOf(context)
+                                                            .width,
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        bottomLeft:
+                                                            Radius.circular(20),
+                                                        bottomRight:
+                                                            Radius.circular(20),
+                                                        topLeft:
+                                                            Radius.circular(10),
+                                                        topRight:
+                                                            Radius.circular(10),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsets.all(10),
-                                                        child: RichText(
-                                                          textScaler:
-                                                              MediaQuery.of(
-                                                                      context)
-                                                                  .textScaler,
-                                                          text: TextSpan(
-                                                            children: [
-                                                              TextSpan(
-                                                                text:
-                                                                    'Cuide bem da sua prótese para garantir um sorriso saudável!\n\n',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: Colors
-                                                                          .black,
-                                                                      letterSpacing:
-                                                                          0,
-                                                                    ),
-                                                              ),
-                                                              TextSpan(
-                                                                text:
-                                                                    '• Lave a prótese todos os dias com água e sabão neutro ou com produtos específicos recomendados pelo dentista.\n\n• Não use pasta de dente comum na prótese, pois pode ser abrasiva e danificá-la. \n\n• Lembre-se de retirar a prótese à noite para evitar infecções na boca, faça o armazenamento em um recipiente com água limpa ou solução apropriada.\n\n• Não se esqueça de higienizar a língua e mucosas da boca.\n\n• Visite o dentista regularmente para ajustar e verificar a prótese.',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: Colors
-                                                                      .black,
-                                                                ),
-                                                              )
-                                                            ],
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(6),
+                                                          child: Text(
+                                                            'CUIDADOS COM A PRÓTESE',
+                                                            textAlign:
+                                                                TextAlign.center,
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -287,17 +241,69 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                                                       .black,
                                                                   letterSpacing:
                                                                       0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
                                                                 ),
                                                           ),
-                                                          textAlign:
-                                                              TextAlign.justify,
                                                         ),
-                                                      ),
-                                                    ],
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(10),
+                                                          child: RichText(
+                                                            textScaler:
+                                                                MediaQuery.of(
+                                                                        context)
+                                                                    .textScaler,
+                                                            text: TextSpan(
+                                                              children: [
+                                                                TextSpan(
+                                                                  text:
+                                                                      'Cuide bem da sua prótese para garantir um sorriso saudável!\n\n',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Readex Pro',
+                                                                        color: Colors
+                                                                            .black,
+                                                                        letterSpacing:
+                                                                            0,
+                                                                      ),
+                                                                ),
+                                                                TextSpan(
+                                                                  text:
+                                                                      '• Lave a prótese todos os dias com água e sabão neutro ou com produtos específicos recomendados pelo dentista.\n\n• Não use pasta de dente comum na prótese, pois pode ser abrasiva e danificá-la. \n\n• Lembre-se de retirar a prótese à noite para evitar infecções na boca, faça o armazenamento em um recipiente com água limpa ou solução apropriada.\n\n• Não se esqueça de higienizar a língua e mucosas da boca.\n\n• Visite o dentista regularmente para ajustar e verificar a prótese.',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: Colors
+                                                                        .black,
+                                                                  ),
+                                                                )
+                                                              ],
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Readex Pro',
+                                                                    color: Colors
+                                                                        .black,
+                                                                    letterSpacing:
+                                                                        0,
+                                                                  ),
+                                                            ),
+                                                            textAlign:
+                                                                TextAlign.justify,
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),

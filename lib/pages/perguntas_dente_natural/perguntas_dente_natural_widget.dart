@@ -1,4 +1,7 @@
 import 'package:sorriso_consciente/provider/perguntas_dente_natural_provider.dart';
+import 'package:sorriso_consciente/provider/perguntas_iniciais_provider.dart';
+import 'package:sorriso_consciente/provider/perguntas_sem_dente_natural_provider.dart';
+import 'package:sorriso_consciente/services/firestore_service.dart';
 
 import '/components/alerta_campos_nao_preenchidos_widget.dart';
 import '/components/side_bar_widget.dart';
@@ -1193,9 +1196,15 @@ class _PerguntasDenteNaturalWidgetState
 
                                         return;
                                       }
-                                      Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).clear();
                                       _model.geraPontuacao();
                                       Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).addAnswer(_model);
+
+                                      FirestoreService.registerData(
+                                        perguntas_iniciais_provider: Provider.of<PerguntasIniciaisProvider>(context, listen: false),
+                                        perguntas_dente_natural_provider: Provider.of<PerguntasDenteNaturalProvider>(context, listen: false),
+                                        perguntas_sem_dente_natural_provider: Provider.of<PerguntasSemDenteNaturalProvider>(context, listen: false),
+                                      );
+                                      
                                       context.pushNamed('Resultado');
                                     },
                                     text: 'Continuar',

@@ -6,18 +6,24 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:sorriso_consciente/db/banco.dart';
 import 'package:sorriso_consciente/provider/perguntas_dente_natural_provider.dart';
+import 'package:sorriso_consciente/provider/perguntas_iniciais_provider.dart';
 import 'package:sorriso_consciente/provider/perguntas_sem_dente_natural_provider.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'package:provider/provider.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 import 'package:sorriso_consciente/db/banco.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
 
@@ -65,6 +71,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (context) => PerguntasIniciaisProvider()),
         ChangeNotifierProvider(create: (context) => PerguntasDenteNaturalProvider()),
         ChangeNotifierProvider(create: (context) => PerguntasSemDenteNaturalProvider()),
       ], 

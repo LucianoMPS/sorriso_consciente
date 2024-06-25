@@ -15,28 +15,13 @@ class Banco {
 
   Future<Database> _initDatabase() async {
     String path = join(await getDatabasesPath(), 'sorriso.db');
-    
-    bool exists = await databaseExists(path);
-    
-    if (!exists) {
-      // Se não existir, crie o banco de dados
-      return await openDatabase(
-        path,
-        version: 2,
-        onCreate: _onCreate,
-      );
-    } else {
-      // Se já existir, abra o banco de dados
-      return await openDatabase(
-        path,
-        version: 2,
-      );
-    }
+    return await openDatabase(path, version: 2, onCreate: _onCreate);
   }
 
   Future _onCreate(Database db, int version) async {
     await db.execute('''
       CREATE TABLE historico (
+        id INTEGER PRIMARY KEY AUTOINCREMENT
         data DATE,
         pontuacao INTEGER,
         resultado TEXT

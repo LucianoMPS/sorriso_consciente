@@ -1,4 +1,5 @@
 import 'package:sorriso_consciente/provider/perguntas_dente_natural_provider.dart';
+import 'package:sorriso_consciente/provider/perguntas_iniciais_provider.dart';
 import 'package:sorriso_consciente/provider/perguntas_sem_dente_natural_provider.dart';
 
 import '/components/alerta_campos_nao_preenchidos_widget.dart';
@@ -983,7 +984,9 @@ class _PerguntasIniciaisWidgetState extends State<PerguntasIniciaisWidget> {
                                               );
                                             },
                                           ).then((value) => setState(() {}));
-                
+                                                                              
+                                          Provider.of<PerguntasIniciaisProvider>(context, listen: false).addAnswer(_model);
+
                                           if (_model.radioButtonValue7 == 'Sim') {
                                             context.pushNamed(
                                                 'PerguntasDenteNatural');
