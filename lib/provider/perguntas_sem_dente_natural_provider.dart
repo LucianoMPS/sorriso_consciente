@@ -13,7 +13,7 @@ class PerguntasSemDenteNaturalProvider extends ChangeNotifier {
   });
 
   void addAnswer(PerguntasSemDenteNaturalModel perguntas) {
-    perguntas_sem_dente_natural ??= [];
+    perguntas_sem_dente_natural = [];
     pontuacao = perguntas.pontuacao;
     resultado = textPontuacao(perguntas.pontuacao);
     
@@ -23,14 +23,6 @@ class PerguntasSemDenteNaturalProvider extends ChangeNotifier {
     perguntas_sem_dente_natural?.add(perguntas.radioButtonValue4!);
     perguntas_sem_dente_natural?.add(perguntas.radioButtonValue5!);
     perguntas_sem_dente_natural?.add(perguntas.radioButtonValue6!);
-
-    notifyListeners();
-  }
-
-  void clear() {
-    pontuacao = null;
-    perguntas_sem_dente_natural?.clear();
-    resultado = null;
 
     notifyListeners();
   }

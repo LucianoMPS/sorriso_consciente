@@ -987,24 +987,20 @@ class _PerguntasIniciaisWidgetState extends State<PerguntasIniciaisWidget> {
                                           ).then((value) => setState(() {}));
 
                                           if (_model.radioButtonValue7 == 'Sim') {
-                                            Provider.of<PerguntasIniciaisProvider>(context, listen: false).clear();
                                             Provider.of<PerguntasIniciaisProvider>(context, listen: false).addAnswer(_model);
                                             context.pushNamed(
                                                 'PerguntasDenteNatural');
                                           } else {
-                                            Provider.of<PerguntasIniciaisProvider>(context, listen: false).clear();
                                             Provider.of<PerguntasIniciaisProvider>(context, listen: false).addAnswer(_model);
                                             context.pushNamed(
                                                 'PerguntasSemDenteNatural');
                                           }
                                         } else {
                                           if (_model.radioButtonValue7 == 'Sim') {
-                                            Provider.of<PerguntasIniciaisProvider>(context, listen: false).clear();
                                             Provider.of<PerguntasIniciaisProvider>(context, listen: false).addAnswer(_model);
                                             context.pushNamed(
                                                 'PerguntasDenteNatural');
                                           } else {
-                                            Provider.of<PerguntasIniciaisProvider>(context, listen: false).clear();
                                             Provider.of<PerguntasIniciaisProvider>(context, listen: false).addAnswer(_model);
                                             context.pushNamed(
                                                 'PerguntasSemDenteNatural');

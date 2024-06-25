@@ -451,7 +451,7 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                         ),
                                       ),
                                       Visibility(
-                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural![1] != 'Não'),
+                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural?[1] != 'Não'),
                                         child: Padding(
                                           padding: EdgeInsets.all(4),
                                           child: Card(
@@ -596,7 +596,7 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                         ),
                                       ),
                                       Visibility(
-                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural![2] == 'Sim'),
+                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural?[2] == 'Sim'),
                                         child: Padding(
                                           padding: EdgeInsets.all(4),
                                           child: Card(
@@ -744,7 +744,7 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                         ),
                                       ),
                                       Visibility(
-                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural![3] == 'Sim'),
+                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural?[3] == 'Sim'),
                                         child: Padding(
                                           padding: EdgeInsets.all(4),
                                           child: Card(
@@ -883,7 +883,7 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                         ),
                                       ),
                                       Visibility(
-                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural![4] != 'Não'),
+                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural?[4] != 'Não'),
                                         child: Padding(
                                           padding: EdgeInsets.all(4),
                                           child: Card(
@@ -1022,7 +1022,7 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                         ),
                                       ),
                                       Visibility(
-                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural![5] == 'Sim'),
+                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural?[5] == 'Sim'),
                                         child: Padding(
                                           padding: EdgeInsets.all(4),
                                           child: Card(
@@ -1161,7 +1161,7 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                         ),
                                       ),
                                       Visibility(
-                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural![6] != 'Não'),
+                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural?[6] != 'Não'),
                                         child: Padding(
                                           padding: EdgeInsets.all(4),
                                           child: Card(
@@ -1300,7 +1300,7 @@ class _RecomendacoesWidgetState extends State<RecomendacoesWidget> {
                                         ),
                                       ),
                                       Visibility(
-                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural![7] == 'Não'),
+                                        visible: (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural?[7] == 'Não'),
                                         child: Padding(
                                           padding: EdgeInsets.all(4),
                                           child: Card(

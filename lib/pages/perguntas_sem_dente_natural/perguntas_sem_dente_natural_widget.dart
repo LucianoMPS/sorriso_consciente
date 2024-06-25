@@ -809,9 +809,6 @@ class _PerguntasSemDenteNaturalWidgetState
 
                                         return;
                                       }
-                                      Provider.of<PerguntasSemDenteNaturalProvider>(context, listen: false).clear();
-                                      Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).clear();
-
                                       _model.geraPontuacao();
                                       Provider.of<PerguntasSemDenteNaturalProvider>(context, listen: false).addAnswer(_model);
 

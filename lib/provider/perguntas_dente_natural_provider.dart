@@ -13,7 +13,7 @@ class PerguntasDenteNaturalProvider extends ChangeNotifier {
   });
 
   void addAnswer(PerguntasDenteNaturalModel perguntas) {
-    perguntas_dente_natural ??= [];
+    perguntas_dente_natural = [];
     pontuacao = perguntas.pontuacao;
     resultado = textPontuacao(perguntas.pontuacao);
 
@@ -27,14 +27,6 @@ class PerguntasDenteNaturalProvider extends ChangeNotifier {
     perguntas_dente_natural?.add(perguntas.radioButtonValue8!);
     perguntas_dente_natural?.add(perguntas.radioButtonValue9!);
     perguntas_dente_natural?.add(perguntas.radioButtonValue10!);
-
-    notifyListeners();
-  }
-
-  void clear() {
-    pontuacao = null;
-    perguntas_dente_natural?.clear();
-    resultado = null;
 
     notifyListeners();
   }

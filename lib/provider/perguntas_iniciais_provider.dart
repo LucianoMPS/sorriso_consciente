@@ -11,7 +11,7 @@ class PerguntasIniciaisProvider extends ChangeNotifier {
   });
 
   void addAnswer(PerguntasIniciaisModel perguntas) {
-    perguntas_iniciais ??= [];
+    perguntas_iniciais = [];
     idade = perguntas.idade;
     
     perguntas_iniciais?.add(perguntas.radioButtonValue1!);
@@ -21,13 +21,6 @@ class PerguntasIniciaisProvider extends ChangeNotifier {
     perguntas_iniciais?.add(perguntas.radioButtonValue5!);
     perguntas_iniciais?.add(perguntas.radioButtonValue6!);
     perguntas_iniciais?.add(perguntas.radioButtonValue7!);
-
-    notifyListeners();
-  }
-
-  void clear() {
-    idade = null;
-    perguntas_iniciais?.clear();
 
     notifyListeners();
   }
