@@ -21,6 +21,7 @@ class PerguntasIniciaisProvider extends ChangeNotifier {
     perguntas_iniciais?.add(perguntas.radioButtonValue4!);
     perguntas_iniciais?.add(perguntas.radioButtonValue5!);
     perguntas_iniciais?.add(perguntas.radioButtonValue6!);
+    perguntas_iniciais?.add(perguntas.radioButtonValue7!);
 
     notifyListeners();
   }
@@ -33,6 +34,7 @@ class PerguntasIniciaisProvider extends ChangeNotifier {
       'perguntainicial4': perguntas_iniciais?[3],
       'perguntainicial5': perguntas_iniciais?[4],
       'perguntainicial6': perguntas_iniciais?[5],
+      'perguntainicial6': perguntas_iniciais?[6],
       'idade': idade,
     };
   }

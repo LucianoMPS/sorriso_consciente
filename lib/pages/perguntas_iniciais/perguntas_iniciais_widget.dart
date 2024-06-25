@@ -984,7 +984,7 @@ class _PerguntasIniciaisWidgetState extends State<PerguntasIniciaisWidget> {
                                               );
                                             },
                                           ).then((value) => setState(() {}));
-                                                                              
+                                
                                           Provider.of<PerguntasIniciaisProvider>(context, listen: false).addAnswer(_model);
 
                                           if (_model.radioButtonValue7 == 'Sim') {
