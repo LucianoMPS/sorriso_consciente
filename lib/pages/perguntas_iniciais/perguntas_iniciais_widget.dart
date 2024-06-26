@@ -227,7 +227,7 @@ class _PerguntasIniciaisWidgetState extends State<PerguntasIniciaisWidget> {
                                   Align(
                                     alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: Text(
-                                      '2 -  Diabético?',
+                                      '2 - Diabético?',
                                       textAlign: TextAlign.start,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -317,6 +317,7 @@ class _PerguntasIniciaisWidgetState extends State<PerguntasIniciaisWidget> {
                                               .override(
                                                 fontFamily: 'Readex Pro',
                                                 color: Colors.black,
+                                                fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                               ),
                                       buttonPosition: RadioButtonPosition.left,

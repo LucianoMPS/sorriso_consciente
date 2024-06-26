@@ -113,7 +113,7 @@ class _AlertaRiscoWidgetState extends State<AlertaRiscoWidget> {
                         Padding(
                           padding: EdgeInsets.all(12),
                           child: Text(
-                            'Olá! Você marcou uma das condições de saúde anteriores e isso significa que você faz parte de um grupo que necessita de cuidados especiais. \n\nPor isso, é muito importante que você visite o dentista regularmente. Ele vai cuidar da sua boca, identificar problemas logo no início e evitar que eles fiquem graves. Além disso, cuidar bem dos seus dentes pode ajudar a controlar sua saúde geral e deixar você mais saudável. Por isso, não se esqueça de ir ao dentista com frequência. É essencial para manter sua saúde em dia!\"',
+                            'Olá! Você marcou uma das condições de saúde anteriores e isso significa que você faz parte de um grupo que necessita de cuidados especiais. \n\nPor isso, é muito importante que você visite o dentista regularmente. Ele vai cuidar da sua boca, identificar problemas logo no início e evitar que eles fiquem graves. Além disso, cuidar bem dos seus dentes pode ajudar a controlar sua saúde geral e deixar você mais saudável. Por isso, não se esqueça de ir ao dentista com frequência. É essencial para manter sua saúde em dia!',
                             textAlign: TextAlign.justify,
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
