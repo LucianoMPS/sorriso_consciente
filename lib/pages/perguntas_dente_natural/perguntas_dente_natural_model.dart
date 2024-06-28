@@ -99,9 +99,9 @@ class PerguntasDenteNaturalModel
       pontuacao += 10;
     }
     if (radioButtonValue9 == 'Não') {
-      pontuacao += 10;
-    } else if (radioButtonValue9 == 'Às vezes'){
       pontuacao += 15;
+    } else if (radioButtonValue9 == 'Às vezes'){
+      pontuacao += 10;
     }
     if (radioButtonValue10 == 'Não') {
       pontuacao += 10;
