@@ -123,63 +123,63 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                     ),
                   ),
                 ),
-                Builder(
-                  builder: (context) => Padding(
-                    padding: EdgeInsets.all(14),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        await showDialog(
-                          context: context,
-                          builder: (dialogContext) {
-                            return Dialog(
-                              elevation: 0,
-                              insetPadding: EdgeInsets.zero,
-                              backgroundColor: Colors.transparent,
-                              alignment: AlignmentDirectional(0, 0)
-                                  .resolve(Directionality.of(context)),
-                              child: Container(
-                                height: MediaQuery.sizeOf(context).height * 0.5,
-                                child: SaibaMaisWidget(),
-                              ),
-                            );
-                          },
-                        ).then((value) => setState(() {}));
-                      },
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.add,
-                            color: Color(0xFFFFF800),
-                            size: 24,
-                          ),
-                          Expanded(
-                            child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-                              child: Text(
-                                'Saiba Mais',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Readex Pro',
-                                      color: Colors.white,
-                                      letterSpacing: 0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
+                // Builder(
+                //   builder: (context) => Padding(
+                //     padding: EdgeInsets.all(14),
+                //     child: InkWell(
+                //       splashColor: Colors.transparent,
+                //       focusColor: Colors.transparent,
+                //       hoverColor: Colors.transparent,
+                //       highlightColor: Colors.transparent,
+                //       onTap: () async {
+                //         await showDialog(
+                //           context: context,
+                //           builder: (dialogContext) {
+                //             return Dialog(
+                //               elevation: 0,
+                //               insetPadding: EdgeInsets.zero,
+                //               backgroundColor: Colors.transparent,
+                //               alignment: AlignmentDirectional(0, 0)
+                //                   .resolve(Directionality.of(context)),
+                //               child: Container(
+                //                 height: MediaQuery.sizeOf(context).height * 0.5,
+                //                 child: SaibaMaisWidget(),
+                //               ),
+                //             );
+                //           },
+                //         ).then((value) => setState(() {}));
+                //       },
+                //       child: Row(
+                //         mainAxisSize: MainAxisSize.max,
+                //         mainAxisAlignment: MainAxisAlignment.center,
+                //         children: [
+                //           Icon(
+                //             Icons.add,
+                //             color: Color(0xFFFFF800),
+                //             size: 24,
+                //           ),
+                //           Expanded(
+                //             child: Padding(
+                //               padding:
+                //                   EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                //               child: Text(
+                //                 'Saiba Mais',
+                //                 style: FlutterFlowTheme.of(context)
+                //                     .bodyMedium
+                //                     .override(
+                //                       fontFamily: 'Readex Pro',
+                //                       color: Colors.white,
+                //                       letterSpacing: 0,
+                //                       fontWeight: FontWeight.bold,
+                //                     ),
+                //               ),
+                //             ),
+                //           ),
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 Padding(
                   padding: EdgeInsets.all(8),
                   child: Column(
