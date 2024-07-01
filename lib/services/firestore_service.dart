@@ -36,7 +36,7 @@ class FirestoreService {
         //Firestore
         combinedData.addAll(iniciaisData);
         combinedData.addAll(denteNaturalData!);
-        await _firebaseFirestore.collection('perguntas').add(combinedData);
+        await _firebaseFirestore.collection('perguntasdente').add(combinedData);
       }
 
       //Armazena localmente e no firestore caso tenha escolhido que não possui dente natural
@@ -53,7 +53,7 @@ class FirestoreService {
         //Firestore
         combinedData.addAll(iniciaisData);
         combinedData.addAll(semDenteNaturalData!);
-        await _firebaseFirestore.collection('perguntas').add(combinedData);
+        await _firebaseFirestore.collection('perguntasprotase').add(combinedData);
       }
 
       print("Dados registrados com sucesso.");

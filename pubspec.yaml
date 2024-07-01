@@ -62,6 +62,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   firebase_core: ^2.27.0
   cloud_firestore: ^4.15.8
+  flutter_native_splash: ^2.3.2
 
 dependency_overrides:
   http: 1.2.0
@@ -79,13 +80,20 @@ dev_dependencies:
 
 flutter_launcher_icons:
   android: true
-  ios: true
+  ios: false
   web:
     generate: true
-  image_path: 'assets/images/icon.png'
-  adaptive_icon_background: '#117bdf'
-  adaptive_icon_foreground: 'assets/images/icon.png'
+  image_path: 'assets/images/app_launcher_icon.png'
 
+flutter_native_splash:
+  color: '#117bdf'
+  image_path: 'assets/images/app_launcher_icon.png'
+  android: true
+  ios: false
+  web: false
+  android_gravity: center
+  android_resize_mode: cover
+  fullscreen: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
