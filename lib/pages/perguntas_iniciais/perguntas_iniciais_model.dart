@@ -46,6 +46,10 @@ class PerguntasIniciaisModel extends FlutterFlowModel<PerguntasIniciaisWidget> {
       return 'Campo obrigatório';
     }
 
+    if (int.parse(val) == 0) {
+      return 'Idade não pode ser 0';
+    }
+
     if (val.length < 1) {
       return 'Requires at least 1 characters.';
     }
