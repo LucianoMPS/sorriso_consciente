@@ -56,16 +56,23 @@ class _SideBarWidgetState extends State<SideBarWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(0),
-                  child: Image.network(
-                    'https://picsum.photos/seed/481/600',
-                    width: MediaQuery.sizeOf(context).width,
-                    height: 116,
-                    fit: BoxFit.cover,
-                    alignment: Alignment(0, 0),
+                Container(
+                  height: 30,
+                  width: 250,
+                  decoration: BoxDecoration(
+                    color: Color(0xFF117BDF),
                   ),
                 ),
+                // ClipRRect(
+                //   borderRadius: BorderRadius.circular(0),
+                //   child: Image.network(
+                //     'https://picsum.photos/seed/481/600',
+                //     width: MediaQuery.sizeOf(context).width,
+                //     height: 116,
+                //     fit: BoxFit.cover,
+                //     alignment: Alignment(0, 0),
+                //   ),
+                // ),
                 Builder(
                   builder: (context) => Padding(
                     padding: EdgeInsets.all(14),
