@@ -148,7 +148,7 @@ class _EquipeTecnicaWidgetState extends State<EquipeTecnicaWidget> {
                                   style: TextStyle(),
                                 ),
                                 TextSpan(
-                                  text: 'Rêne Rodrigues Veloso',
+                                  text: 'Renê Rodrigues Veloso',
                                   style: TextStyle(),
                                 )
                               ],
