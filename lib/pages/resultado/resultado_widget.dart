@@ -1,5 +1,6 @@
 import 'package:sorriso_consciente/db/historic.dart';
 import 'package:sorriso_consciente/provider/perguntas_dente_natural_provider.dart';
+import 'package:sorriso_consciente/provider/perguntas_iniciais_provider.dart';
 import 'package:sorriso_consciente/provider/perguntas_sem_dente_natural_provider.dart';
 
 import '/components/alerta_sobre_app_widget.dart';
@@ -47,7 +48,7 @@ class _ResultadoWidgetState extends State<ResultadoWidget> {
     List<String>? perguntas;
     String? resultado = '';
     // Inicializando as variáveis pontuacao e perguntas
-    if (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).pontuacao != null) {
+    if (Provider.of<PerguntasIniciaisProvider>(context, listen: false).perguntas_iniciais![6] == 'Sim') {
       pontuacao = Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).pontuacao;
       perguntas = Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).perguntas_dente_natural;
     } else {
@@ -358,7 +359,7 @@ class _ResultadoWidgetState extends State<ResultadoWidget> {
   }
 
     String? textPontuacao (int? pontuacao) {
-    if (Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).pontuacao != null) {
+    if (Provider.of<PerguntasIniciaisProvider>(context, listen: false).perguntas_iniciais![6] == 'Sim' && Provider.of<PerguntasDenteNaturalProvider>(context, listen: false).pontuacao != null) {
       if (pontuacao! <= 15) {
         return 'Saúde bucal excelente. Indica que você provavelmente mantém hábitos excelentes de higiene oral e não apresenta sinais de problemas dentários significativos. Recomenda-se manter os bons hábitos e fazer visitas regulares ao dentista para exames preventivos.';
       } else if (pontuacao <= 30) {
@@ -370,7 +371,7 @@ class _ResultadoWidgetState extends State<ResultadoWidget> {
       } else {
         return 'Saúde bucal crítica. Indica uma condição bucal preocupante que pode exigir intervenção imediata. Recomenda-se procurar atendimento odontológico urgente para evitar complicações graves.';
       }
-    } else if (Provider.of<PerguntasSemDenteNaturalProvider>(context, listen: false).pontuacao != null){
+    } else if (Provider.of<PerguntasSemDenteNaturalProvider>(context, listen: false).pontuacao != null && Provider.of<PerguntasIniciaisProvider>(context, listen: false).perguntas_iniciais![6] == 'Não'){
       if (pontuacao! <= 5) {
         return 'Saúde bucal excelente. Indica que você provavelmente mantém hábitos excelentes de higiene oral e não apresenta sinais de problemas dentários significativos. Recomenda-se manter os bons hábitos e fazer visitas regulares ao dentista para exames preventivos.';
       } else if (pontuacao <= 20) {
