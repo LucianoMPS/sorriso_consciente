@@ -247,6 +247,20 @@ class _SideBarWidgetState extends State<SideBarWidget> {
                           fit: BoxFit.contain,
                         ),
                       ),
+                                            ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(0),
+                          bottomRight: Radius.circular(0),
+                          topLeft: Radius.circular(0),
+                          topRight: Radius.circular(0),
+                        ),
+                        child: Image.asset(
+                          'assets/images/SI.png',
+                          width: 245,
+                          height: 100,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ],
                   ),
                 ),

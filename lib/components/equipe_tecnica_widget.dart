@@ -95,7 +95,7 @@ class _EquipeTecnicaWidgetState extends State<EquipeTecnicaWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Readex Pro',
                                     color: Colors.white,
-                                    letterSpacing: 0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                         ),
@@ -127,13 +127,48 @@ class _EquipeTecnicaWidgetState extends State<EquipeTecnicaWidget> {
                                         fontFamily: 'Readex Pro',
                                         color: Colors.black,
                                         fontSize: 13,
-                                        letterSpacing: 0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                                 TextSpan(
                                   text: 'Josiane Santos Brant Rocha\n',
                                   style: TextStyle(),
                                 ),
+                                TextSpan(
+                                  text: 'Rene Rodrigues Veloso',
+                                  style: TextStyle(),
+                                )
+                              ],
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: Colors.black,
+                                    fontSize: 13,
+                                    letterSpacing: 0.0,
+                                    lineHeight: 2,
+                                  ),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        Text(
+                          'Acadêmicos:',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Readex Pro',
+                                color: Color(0xFF117BDF),
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(12),
+                          child: RichText(
+                            textScaler: MediaQuery.of(context).textScaler,
+                            text: TextSpan(
+                              children: [
                                 TextSpan(
                                   text: 'Alan Matos Trindade\n',
                                   style: TextStyle(),
@@ -144,11 +179,7 @@ class _EquipeTecnicaWidgetState extends State<EquipeTecnicaWidget> {
                                   style: TextStyle(),
                                 ),
                                 TextSpan(
-                                  text: 'Luciano Morais Pereira Silva\n',
-                                  style: TextStyle(),
-                                ),
-                                TextSpan(
-                                  text: 'Renê Rodrigues Veloso',
+                                  text: 'Luciano Morais Pereira Silva',
                                   style: TextStyle(),
                                 )
                               ],
@@ -158,7 +189,7 @@ class _EquipeTecnicaWidgetState extends State<EquipeTecnicaWidget> {
                                     fontFamily: 'Readex Pro',
                                     color: Colors.black,
                                     fontSize: 13,
-                                    letterSpacing: 0,
+                                    letterSpacing: 0.0,
                                     lineHeight: 2,
                                   ),
                             ),
@@ -183,7 +214,7 @@ class _EquipeTecnicaWidgetState extends State<EquipeTecnicaWidget> {
                                 .override(
                                   fontFamily: 'Readex Pro',
                                   color: Colors.white,
-                                  letterSpacing: 0,
+                                  letterSpacing: 0.0,
                                 ),
                             elevation: 3,
                             borderSide: BorderSide(
